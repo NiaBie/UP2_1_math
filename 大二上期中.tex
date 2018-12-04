@@ -1,0 +1,274 @@
+\documentclass[11pt, a4paper, UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{esint}
+\usepackage{geometry}
+\usepackage{bm}
+\usepackage{amssymb}
+\pagestyle{empty}
+\geometry{a4paper,top=1cm,bottom=1cm,left=2cm}
+%\renewcommand{\baselinestretch}{1}\normalsize
+\begin{document}
+\indent\\
+\large\\
+线性空间\\
+基底变换公式:设$ \alpha_1,\alpha_2...\alpha_n $与$ \beta_1,\beta_2...\beta_n $是线性空间$ V $的两组基底\\
+\\
+线性变换\\
+设$ n $维线性空间$ V $中取定两组基底$ \epsilon_1,\epsilon_2...\epsilon_n $及$ \eta_1,\eta_2...\eta_n $,由基底$ \epsilon_1,\epsilon_2...\epsilon_n $到基底$ \eta_1,\eta_2...\eta_n $的过渡矩阵为
+$ P= 
+\left[      
+\begin{array}{cccc}
+p_{11}&p_{12}&...&p_{1n}\\
+p_{21}&p_{22}&...&p_{2n}\\
+\ &...&...&\ \\
+p_{n1}&p_{n2}&...&p_{nn}\\
+\end{array}
+\right](P$可逆),\\
+即$ (\eta_1,\eta_2...\eta_n)=(\epsilon_1,\epsilon_2...\epsilon_n)P $\\
+$ V $上的线性变换$ T $在这两组基下的矩阵分别为$ A $与$ B $,则$ B=P^{-1}AP $\\
+\\
+特征值与特征向量\\
+$ A $的迹$ =\sum\limits_{j=1}^{n}\lambda_j $,$ A $的行列式值$ =\prod\limits_{j=1}^{n}\lambda_j $\\
+\\
+Stum-Liouvill理论(w387)\\
+\\
+三角级数:\\
+$ \dfrac{a_0}{2}+\sum\limits_{\infty}^{n=1}(a_n\cos nx+b_n\sin nx) $\\
+傅里叶级数:\\
+$ f(x)\sim \dfrac{a_0}{2}+\sum\limits^{\infty}_{n=1}(a_n\cos nx+b_n\sin nx) $\\
+$ \int\limits_{-\pi}^{\pi}\dfrac{a_0}{2}2\pi,a_0=\dfrac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)dx $\\
+$ \int\limits_{-\pi}^{\pi}f(x)\cos mxdx=\int\limits_{-\pi}^{\pi}\dfrac{a_0}{2}\cos mxdx+\sum\limits_{n=1}^{\infty}\int\limits_{-\pi}^{\pi}(a_n\cos nx\cos mx+b_n\sin nx\cos mx)dx $\\
+$ a_n,b_n $称为f的傅里叶系数:\\
+$ a_n=\dfrac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)\cos nxdx,n=0,1,2... $\\
+$ b_n=\dfrac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)\sin nxdx,n=0,1,2... $\\
+复形式的傅里叶级数:\\
+$ \sum\limits_{k\in\mathbf{Z}}c_ke^{ikx}=c_0+c_1e^{ix}+c_{-1}e^{-ix}+c_{2}e^{i2x}+c_{-2}e^{-i2x}+... $\\
+复傅里叶系数:\\
+$ c_k=\dfrac{1}{2\pi}\int\limits_{-\pi}^{\pi}f(x)e^{-ikx}dx,k\in\mathbf{Z} $\\
+$ \int\limits_{-\pi}^{\pi}f(x)e^{inx}dx=\sum c_k\int\limits_{-\pi}^{\pi}e^{i(k-n)x}dx=
+\left\{
+\begin{aligned}
+2\pi\qquad&k=n\\
+0\qquad&k\not=n
+\end{aligned}
+\right. $\\
+简单性质:\\
+(1)$ c_k\in\mathbf{C},|c_k|=\dfrac{1}{2\pi}|\int\limits_{-\pi}^{\pi}f(x)e^{-ikx}dx|\le\dfrac{1}{2\pi}\int\limits_{-\pi}^{\pi}|f(x)||e^{-ikx}|dx=\dfrac{1}{2\pi}\int\limits_{-\pi}^{\pi}|f(x)|dx\\
+c_k\le\dfrac{1}{2\pi}\int\limits_T|f(x)|dx $\\
+(2)$ f\in C^1(T),c_k=\dfrac{1}{2\pi}f(x)e^{-ikx}dx=\dfrac{1}{-2\pi ik}(f(x)e^{-ikx}|_{x=-\pi}^{\pi}-\int\limits_{-\pi}^{\pi}e^{-ikx}f'(x)dx)=\dfrac{1}{2\pi ik}\int\limits_{-\pi}^{\pi}f'(x)e^{-ikx}dx $\\
+一般的,$ f\in C^m(T) $,则$ |c_k|\sim\dfrac{1}{|k|^m} $(k阶连续可导)\\
+$ \sum\limits_{k\in\mathbf{Z}}c_ke^{ikx}\Rightarrow|c_ke^{ikx}|\le\dfrac{c}{|k|^2} $,而$ \sum\limits_{k\in\mathbf{Z}}\dfrac{1}{|k|^2}<\infty $,therefore$ f\in C^2,\sum c_ke^{ikx}\rightrightarrows f $\\
+\\
+正弦级数\\
+$ \sum\limits_{n=1}^{\infty}b_n\sin nx $\\
+余弦级数\\
+$ \dfrac{a_0}{2}+\sum\limits_{n=1}^{\infty}a_n\cos nx $\\
+\\
+定理1(Euler-Poisson)\\
+若三角级数$ \dfrac{a_0}{2}+\sum\limits^{\infty}_{n=1}(a_n\cos nx+b_n\sin nx) $在$ [\-\pi,\pi] $一致收敛于$ f(x) $,则\\
+$ a_n=\dfrac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)\cos nxdx,n=0,1,2... $\\
+$ b_n=\dfrac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)\sin nxdx,n=0,1,2... $\\
+例:\\
+$ f(x)=x,x\in[-\pi,\pi) $\\
+做$ 2\pi $周期延拓,求其傅里叶级数\\
+解:\\
+$ f(x)=x,x\in(-\pi,\pi) $是个奇函数,故$ f(x)\cos nx $是奇函数\\
+所以$ a_n=0 $\\
+$ b_n=\dfrac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x)\sin nxdx=\dfrac{1}{\pi}\int\limits_{\-pi}^{\pi}x\sin nxdx=-\dfrac{1}{n\pi}\cos nx|_{x=-\pi}^{\pi}+\dfrac{1}{n\pi}\int\limits_{-\pi}^{\pi}\cos nxdx\\
+=-\dfrac{1}{n\pi}(\pi\cos n\pi+\pi\cos(-n\pi))=2\dfrac{(-1)^{n+1}}{n} $\\
+所以$ f(x)\sim 2\sum_{n=1}^{\infty}\dfrac{(-1)^{n+1}}{n}\sin nx $\\
+取$ x=\dfrac{\pi}{2} $则$ \dfrac{\pi}{4}=1-\dfrac{1}{3}+\dfrac{1}{5}-\dfrac{1}{7}+\dfrac{1}{9}-... $\\
+\\
+例2:\\
+$ f(x)=x^2,x\in[-\pi,\pi) $,求傅里叶级数\\
+解:\\
+$ f(x) $在$ (-\pi,\pi) $上为偶函数,所以$ b_n=0 $\\
+$ a_0=\dfrac{1}{\pi}\int\limits_{-\pi}^{\pi}x^2dx=\dfrac{2}{3}\pi^2 $\\
+$ a_n=\dfrac{1}{\pi}\int\limits_{-\pi}^{\pi}x^2\cos nxdx=\dfrac{1}{n\pi}x^2\sin nx|_{x=-\pi}^{\pi}-\dfrac{2}{n\pi}\int\limits_{-\pi}^{\pi}x\sin nxdx\\
+=\dfrac{2}{n^2\pi}x\cos nx|_{x=-\pi}^{\pi}-\dfrac{2}{n^2\pi}\int\limits_{-\pi}^{\pi}\cos nxdx=\dfrac{4}{n^2}(-1)^n $\\
+所以$ f(x)\sim\dfrac{\pi^2}{3}+4\sum\limits_{n=1}^{\infty}\dfrac{(-1)^n}{n^2}\cos nx $\\
+事实上:\\
+$ f(x)=\dfrac{\pi^2}{3}+4\sum\limits_{n=1}^{\infty}\dfrac{(-1)^n}{n^2}\cos nx,x\in[-\pi,\pi) $\\
+取$ x=-\pi $\\
+$ \pi^2=\dfrac{1}{3}\pi^2+4\sum\limits_{n=1}^{\infty}\dfrac{1}{n^2} $\\
+所以$ \sum\limits_{n=1}^{\infty}\dfrac{1}{n^2}=\dfrac{\pi^2}{6} $\\
+\\
+例3:\\
+$ f(x)=|x|,x\in[-\pi,\pi) $\\
+解:\\
+$ b_n=0 $\\
+$ a_0=\dfrac{1}{\pi}\int\limits_{-\pi}^{\pi}|x|dx=\dfrac{2}{\pi}\int\limits_{0}^{\pi}xdx=\pi $\\
+$ a_n=\dfrac{1}{\pi}\int\limits_{-\pi}^{\pi}|x|\cos nxdx=\dfrac{2}{\pi}\int\limits_{0}^{\pi}x\cos nxdx=\dfrac{2}{n\pi}x\sin nx|_{x=0}^{\pi}-\dfrac{2}{n\pi}\int_{0}^{\pi}\sin nxdx\\
+=\dfrac{2}{n^2\pi}\cos nx|_{x=0}^{\pi}=\dfrac{2}{n^2\pi}((-1)^2-1)=
+\left\{
+\begin{aligned}
+-\dfrac{4}{n^2\pi}\quad \mbox{n为奇数}\\
+0\quad \mbox{n为偶数}
+\end{aligned}
+\right. $\\
+所以$ |x|=^?\dfrac{\pi}{2}-\dfrac{4}{\pi}\sum\limits_{n=1}^{\infty}\dfrac{1}{(xn-1)^2}\cos(2n-1)x,x\in[-\pi,\pi) $\\
+取$ x=0 $,得\\
+$ 1+\dfrac{1}{3^2}+\dfrac{1}{5^2}+...=\dfrac{\pi^2}{8} $\\
+所以$ \dfrac{1}{2^2}+\dfrac{1}{4^2}+\dfrac{1}{6^2}+...=\dfrac{\pi^2}{24} $\\
+\\
+%引理(黎曼-莱布尼茨)\\
+%$ f\in\mathbb{R}([a,b]) $,则$ \lim\limits_{\lambda\to\infty}\int\limits_a^bf(x)\cos \lambda xdx=0,\lim\limits_{\lambda\to\infty}\int\limits_a^bf(x)\sin \lambda xdx=0 $\\
+%证明:\\
+%(1)取$ f(x)=\chi $
+定理2(Dirichlet):\\
+设$ f(x) $是逐段$ C^1 $函数(在$ [-\pi,\pi) $),则\\
+$ \dfrac{f(x+)+f(x-)}{2}=\dfrac{a_0}{2}+\sum_{n=1}^{\infty}(a_n\cos nx+b_n\sin nx),\forall x\in[-\pi,\pi) $\\
+%证明:(狄利克雷核)\\
+%$ \sigma_n(x)=\dfrac{1}{2}+\cos 2x+...+\cos nx=\dfrac{\sin (n+\dfrac{1}{2})x}{2\sin\dfrac{x}{2}} $\\
+%$ \int\limits_0^{\pi}\sigma_n(x)dx=\dfrac{\pi}{2} $\\
+%部分和:\\
+%$ S_n(x)=\dfrac{a_0}{2}+\sum_{k=1}^n(a_k\cos kx+b_k\sin kx)=\dfrac{1}{2\pi}\int\limits_Tf(t)dt+\dfrac{1}{\pi}\sum\limits_{k=1}^n(\cos kx\int\limits_Tf(t)\cos ktdt+\sin kx\int\limits_Tf(t)\sin ktdt)\\
+%=\dfrac{1}{\pi}\int\limits_Tf(t)(\dfrac{1}{2}+\sum_{k=1}^n\cos k(x-t))dt=\dfrac{1}{\pi}\int\limits_Tf(t)\sigma_n(x-t)=\dfrac{1}{\pi}\int\limits_{-\pi}^{\pi}f(x+u)\sigma_n(u)du\\
+%=\dfrac{1}{\pi}\int\limits_0^{\pi}(f(x+u)+f(x-u))\sigma_n(u)du $\\
+\\
+傅里叶级数进一步的性质\\
+定理1(三角级数完全性):\\
+若$ f\in C(\Pi) $且满足\\
+$ a_n=0,n=0,1,2... $\\
+$ b_n=0,n=1,2,3... $\\
+则$ f\equiv0 $\\
+%证:\\
+%假设$ f\not\equiv0 $,不妨设$ f(0)=\epsilon_0 $,由连续函数保号性,存在$ \delta_0>0 $使得$ \forall|x|<\delta_0,f(x)\ge\dfrac{\epsilon_0}{2}>0 $\\
+%考虑$ p(x)=1+\cos x-\cos\delta_0 $\\
+%则$ p(x)\ge1,|x|\le\delta_0,p(x)<1,|x|>\delta_0 $\\
+%记$ T_n(x)=p(x)^n $\\
+%则$ T_n(x) $是n阶三角多项式(由积化和差)($ \alpha_0+\sum\limits_{k=1}^n(\alpha_k\cos kx+\beta_k\sin kx) $)\\
+%故由条件假设:\\
+%$ \int_{\Pi}f(x)T_n(x)dx=0,\forall n $,且$ \lim\limits_{n\to\infty}T_n(x)=0,|x|>\delta_0 $\\
+%另一方面\\
+%$ \int_{\Pi}f(x)T_ndx=\int_{|x|\le\delta_0}+\int_{\pi\ge|x|>\delta_0}f(x)T_n(x) $\\
+%故\\
+%$ \int_{|x|\le\delta_0}f(x)T_n(x)dx\ge\dfrac{\epsilon_0}{2}\cdot1\cdot2\delta_0=\delta_0\epsilon_0>0 $
+%而\\
+%$ |\int_{\pi\ge|x|>\delta_0}f(x)T_n(x)dx|\le\int_{\pi\ge|x|>\delta_0}|f(x)||T_n(x)|dx\le\int_{\pi\ge|x|>\delta_0}|T_n(x)|dx\to0,n\to\infty $\\
+\\
+定理2(Bessel不等式,最佳均方逼近)\\
+设$ f $是$ \Pi $上平方可积函数\\
+$ T_n(x)=\dfrac{\alpha_0}{2}+\sum\limits_{k=1}^{n}(\alpha_k\cos kx+\beta_k\sin kx) $是任一n阶多项式,则\\
+$ \int_{\Pi}|f(x)-T_n(x)|^2dx=\min_{\tilde{T_n}}\int_{\Pi}|f(x)-\tilde{T_n(x)}|^2dx $当且仅当$ T_n(x)=S_n(x)=\dfrac{a_0}{2}+\sum\limits_{n}^{k=1}(a_k\cos kx+b_k\sin kx) $,其中$ a_k,b_k $是$ f $的傅里叶系数\\
+\\
+定理3(Parsevl等式)\\
+$ \dfrac{1}{\pi}\int_{\Pi}f^2(x)dx=\dfrac{a_0^2}{2}+\sum\limits_{n=1}^{\infty}(a_n^2+b_n^2) $\\
+$ \dfrac{1}{2\pi}|f(x)|^2dx=\sum\limits_{k=-\infty}^{\infty}|c_k|^2 $\\
+\\
+定理4\\
+\{注:设$ \{e_n(x)\}_{n=1}^{\infty} $满足:\\
+1.$ \int_{\Pi}e_n^2(x)dx=1 $\\
+2.$ \int_{\Pi}e_me_ndx=0,m\not=n $\\
+$ \langle e_m,e_n\rangle=S_{mn}=
+\left\{
+\begin{aligned}
+1\quad m=n\\
+2\quad m\not=n\\
+\end{aligned}
+\right. $\\
+对$ f $(平方可积),记$ c_n=\langle f,e_n\rangle=\int_{\Pi}f(x)e_n(x)dx $\\
+则$ \sum\limits_{k=1}^{\infty}c_k^2\le\int_{\Pi}|f(x)|^2dx $\\
+$ \int_{\Pi}|f(x)-\sum\limits_{k=1}^{\infty}|d_ke_k|^2dx=\langle f(x)-\sum\limits_{k=1}^nd_ke_k,f(x)-\sum\limits_{j=1}^nd_je_j\rangle $\\
+$ =\langle f,f\rangle-\sum\limits_{j=1}^nd_j\langle f,e_j\rangle-\sum\limits_{k=1}^nd_k\langle e_k,f\rangle=\int_{\Pi}|f(x)|^2dx-2\sum\limits_{j=1}^nc_jd_j+\sum\limits_{j=1}^nd_j^2 $\\
+($ \langle \alpha f+\beta g,h\rangle=\alpha\langle f,h\rangle+\beta\langle g,h\rangle $)\\
+$ =\int_{\Pi}|f(x)|^2dx+\sum\limits_{j=1}^n(d_j-c_j)^2-\sum\limits_{j=1}^nc_j^2 $\}\\
+设$ \{e_n(x)\}_{n=1}^{\infty} $是一组标准正交系,$ c_n=\langle f,e_n\rangle $\\
+$ \sum\limits_{n=1}^{\infty}|c_n|^2\le\int_{\Pi}|f(x)|^2dx $且等式成立当且仅当$ \{e_n(x)\}_{n=1}^{\infty} $是完全的,即$ f=0\Leftrightarrow c_n=0,\forall n $\\
+\\
+例Haar系:\\
+$ e_0(x)\equiv1,x\in[0,1] $\\
+$ e_1(x)=\left\{
+\begin{aligned}
+1,x\in[0,\dfrac{1}{2}]\\
+0,x\in(\dfrac{1}{2},1]\\
+\end{aligned}
+\right. $\\
+$ e_2(x)=e_1(2x) $\\
+$ e_n(x)=e_1(2^{n-1}x) $\\
+\\
+定理5(逐项积分)\\
+设$ f(x)\sim\dfrac{a_0}{2}+\sum\limits_{n=1}^{\infty}(a_n\cos nx+b_n\sin nx) $\\
+则$ F(x)=(\int\limits_{0}^{x}f(t)dt)=\dfrac{a_0}{2}x+\sum\limits_{n=1}^{\infty}(\dfrac{a_n}{n}\sin nx-(\dfrac{\cos nx-1}{n})b_n),x\in[-\pi,\pi) $\\
+$ F(x)-\dfrac{a_0}{2}x=\dfrac{A_0}{2}+\sum\limits_{n=1}^{\infty}(A_n\cos nx+B_n\sin nx) $\\
+其中$ \dfrac{A_0}{2}=\sum\limits_{n=1}^{\infty}\dfrac{b_n}{n},A_n=-\dfrac{b_n}{n},B_n=\dfrac{a_n}{n} $\\
+\\
+逐项求导\\
+$f\in C(\Pi)$且$f'$分段$C^1$,则\\
+$\dfrac{f'(x+)+f'(x-)}{2}f'(x)=\sum\limits_{n=1}^{\infty}(nb_n\cos nx-na_n\sin nx)$\\
+\\
+例1\\
+$\dfrac{x}{2}=\sum\limits_{n=1}^{\infty}\dfrac{(-1)^{n+1}}{n}\sin nx,x\in(-\pi,\pi)$\\
+(逐项积分)\\
+$\dfrac{1}{4}x^2=\sum\limits_{n=1}^{\infty}\dfrac{(-1)^{n}}{n}\dfrac{\cos nt}{n}|_{t=0}^{x}=\sum\limits_{n=1}^{\infty}\dfrac{(-1)^n}{n^2}\cos nx-\sum\limits_{n=1}^{\infty}\dfrac{(-1)^n}{n^2}$\\
+$x^2=4\sum\limits_{n=1}^{\infty}\dfrac{(-1)^n}{n^2}\cos nx-4\sum\limits_{n=1}^{\infty}\dfrac{(-1)^n}{n^2},x\in(-\pi,\pi)$\\
+在$\Pi$上积分\\
+$\dfrac{2}{3}\pi^3=8\pi\sum\limits_{n=1}^{\infty}\dfrac{(-1)^{n+1}}{n^2}$\\
+$\dfrac{1}{3}\pi^2=4\sum\limits_{n=1}^{\infty}\dfrac{(-1)^{n+1}}{n^2}$\\
+\\
+Weierstra?s函数\\
+处处连续,处处不可导\\
+$\sum\limits_{n=1}^{\infty}\dfrac{1}{a^n}\sin b^nx,(b>a>1)$\\
+\\
+注2(伯恩斯坦定理)\\
+闭区间$[0,1]$上的连续函数可用多项式一致逼近\\
+(1)用光滑函数(一致)逼近连续函数\\
+(2)光滑$C^2$函数被其傅里叶级数(部分和)(一致)逼近\\
+(3)$\sin x,\cos x$可被多项式(泰勒级数部分和)一致逼近\\
+\\
+注3:一般区间上的傅里叶级数展开\\
+(1)$y=f(x),x\in[-l,l]$\\
+令$t=\dfrac{\pi}{l}x,(x=\dfrac{l}{\pi}t)$\\
+则$g(t)=f(\dfrac{l}{\pi}t),t\in[-\pi,\pi]$\\
+$g(t)\sim\dfrac{a_0}{2}+\sum\limits_{n=1}^{\infty}(a_n\cos nt+b_n\sin nt)$\\
+即$f(\dfrac{l}{\pi}t)\sim\dfrac{a_0}{2}+\sum\limits_{n=1}^{\infty}(a_n\cos nt+b_n\sin nt)$\\
+$\Rightarrow f(x)\sim\dfrac{a_0}{2}+\sum\limits_{n=1}^{\infty}(a_n\cos(\dfrac{\pi}{l}nx)+b_n\sin(\dfrac{\pi}{l}nx))$\\
+其中$a_n=\dfrac{1}{\pi}\int\limits_{-\pi}^{\pi}g(t)\cos ntdt\overset{x=\frac{l}{\pi}t}{=}\dfrac{1}{\pi}\dfrac{\pi}{l}\int\limits_{-l}^{l}f(x)\cos(\dfrac{\pi}{l}nx)dx$\\
+$b_n=\dfrac{1}{l}\int\limits_{-l}^{l}f(x)\sin(\dfrac{\pi}{l}nx)dx$\\
+(1-1)$\cos(\dfrac{n\pi}{l}x),\sin(\dfrac{n\pi}{l}x),n=1,2,3...$是$(-l.l]$上的一组完全正交系\\
+(2)$y=f(x),x\in[0,l]$\\
+$
+f_o(x)=
+\begin{cases}
+f(x),&x\in[0,l]\\
+-f(x),&x\in[-l,0)
+\end{cases}
+f_e(x)=
+\begin{cases}
+f(x),&x\in[0,l]\\
+f(-x),&x\in[-l,0)
+\end{cases}
+$\\
+$f_o(x)\sim\sum\limits_{n=1}^{\infty}b_n\sin(\dfrac{n\pi}{l}x)$\\
+$f_e(x)\sim\sum\limits_{n=1}^{\infty}a_n\cos(\dfrac{n\pi}{l}x)$\\
+其中\\
+$a_n=\dfrac{1}{l}\int\limits_{-l}^lf_e(x)\cos(\dfrac{n\pi}{l}x)dx=\dfrac{2}{l}\int\limits_0^lf(x)\cos(\dfrac{n\pi}{l}x)dx$\\
+$b_n=\dfrac{2}{l}\int\limits_{0}^lf(x)\sin(\dfrac{n\pi}{l}x)dx$\\
+(3)$y=f(x),x\in[a,b]$\\
+$x=a+\dfrac{b-a}{\pi}t,t\in[0,\pi]$\\
+$g(t)=f(a+\dfrac{b-a}{\pi}t)$(奇延拓,偶延拓)\\
+\def\mysum{\sum\limits_{n=1}^{\infty}}
+\def\myint{\int\limits_{-\pi}^{\pi}}
+\textbf{傅里叶变换}
+$f(x),x\in[-l,l]$\\
+$f(x)\sim\sum\limits_{k\in\mathbb{Z}}c_ke^{ik\dfrac{\pi}{l}x}$\\
+$=\sum\limits_{k}\dfrac{1}{2l}\int\limits^l_{-l}f(t)e^{-ik\dfrac{\pi}{l}t}dte^{ik\dfrac{\pi}{l}x}$\\
+$\overset{\frac{\pi}{l}=\Delta\xi}{=}\dfrac{1}{2\pi}\sum\limits_k\Delta\xi e^{i(k\Delta\xi)x}\int\limits_{-l}^lf(t)e^{-i(k\Delta\xi)t}dt$\\
+对可积函数$f(x),x\in\mathbb{R}$\\
+定义:对可积函数$f(x),x\in\mathbb{R}$,定义其傅里叶变换\\
+$$\hat{f}(\xi)=\dfrac{1}{\sqrt{2\pi}}\int\limits_{\mathbb{R}}e^{i\xi x}f(x)dx$$\\
+傅里叶逆变换\\
+$$\check{f}(y)=\dfrac{1}{\sqrt{2\pi}}\int\limits_{\mathbb{R}}e^{iyx}f(x)dx$$\\
+注(多重傅里叶级数和变换)\\
+基本性质\\
+(1)$\hat{f}(\xi)$是$\mathbb{R}$上的(易知)连续函数\\
+(2)$\lim\limits_{\xi\to\infty}\hat{f}(\xi)=0$\\
+(3)$\hat{f^(n)}(\xi)=(i\xi)^n\hat{f}(\xi),\widehat{((-ix)^nf(x))(\xi)}=\hat{f}^{(n)}(\xi)$\\
+(4)$\widehat{f\cdot+h}(\xi)=e^{ih\xi}$\\
+(5)\\
+(6)\\
+傅立叶反演定理\\
+若$f,\hat{f}$都是可积函数,则\\
+$$f=\hat{\check{f}}$$
+\end{document}

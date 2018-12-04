@@ -1,0 +1,452 @@
+\documentclass[11pt, a4paper, UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{esint}
+\usepackage{geometry}
+\pagestyle{empty}
+\geometry{a4paper,top=1cm,bottom=1cm,left=1.5cm}
+%\renewcommand{\baselinestretch}{1}\normalsize
+\begin{document}
+\indent\\
+向量积(叉乘):$ \vec{a}\times\vec{b}=\vec{c} $\\
+$ \vec{a},\vec{b},\vec{c} $构成右手系\\
+性质:\\
+$ \vec{a}\times\vec{b}=\vec{0}\Leftrightarrow\vec{a}\parallel\vec{b} $\\
+$ \vec{a}=(a_1,a_2,a_3),\vec{b}=(b_1,b_2,b_3) $\\
+$
+\vec{a}\times\vec{b}=
+\left| %%%或其他符号，注意转义字符
+\begin{array}{lcr}
+\vec{i}&\vec{j}&\vec{k}\\
+a_1&a_2&a_3\\
+b_1&b_2&b_3\\
+\end{array}
+\right|
+$\\
+混合积:等于平行六面体的体积\\
+$
+[\vec{a},\vec{b},\vec{c}]=(\vec{a}\times\vec{b})\vec{c}=
+\left|\begin{array}{lcr}
+a_1&a_2&a_3\\
+b_1&b_2&b_3\\
+c_1&c_2&c_3\\
+\end{array}\right|
+$\\
+\\
+3.9\\
+平面点法式方程:\\
+$ P_0(x_0,y_0,z_0) $,法向量$ \vec{n}=(A,B,C)\\
+A(x-x_0)+B(y-y_0)+C(z-z_0)=0 $\\
+一般式方程:\\
+$ D=-(Ax_0+By_0+Cz_0)\\
+Ax+By+Cz=0\ (A^2+B^2+C^2\not=0) $\\
+三点式方程:\\
+$
+\left|\begin{array}{lcr}
+x-x_1&y-y_1&z-z_1\\
+x-x_2&y-y_2&z-z_2\\
+x-x_3&y-y_3&z-z_3\\
+\end{array}\right|=0
+$\\
+截距式方程:\\
+通过三点$ A(a,0,0),B(0,b,0),C(0,0,c) $的平面\\
+$ \dfrac{x}{a}+\dfrac{y}{b}+\dfrac{z}{c}=1 $\\
+平面与平面的关系:\\
+$ \Pi_i=A_ix+B_iy+C_iz+D_i=0 $\\
+(1)$ \cos\varphi=\dfrac{|\overrightarrow{n_1}\overrightarrow{n_2}|}{|\overrightarrow{n_1}||\overrightarrow{n_2}|} $\\
+3.14\\
+常见的二次曲面:\\
+旋转面:\\
+轴$ \vec{v}=\{l,m,n\},M(x,y,z) $\\
+曲线
+$
+\varGamma=\left\{
+\begin{aligned}
+F(x,y,z)=0\\
+G(x,y,z)=0\\
+\end{aligned}
+\right.
+$\\
+$ M(x,y,z) $是$ s $上任意一点(???)$ \overrightarrow{MM_1}\bot\vec{v} $\\
+$
+\left\{
+\begin{aligned}
+&M_0(x_0,y_0,z_0)\subset\varGamma\\
+&F((x_0,y_0,z_0)=0\\
+&G((x_0,y_0,z_0)=0\\
+&|\overrightarrow{MM_1}\times\vec{v}|=|\overrightarrow{M_0M_1}\times\vec{v}|=0\\
+\end{aligned}
+\right.
+$\\
+\\
+4.8\\
+不想写\\
+\\
+4.11\\
+(部分开集之类的东西)\\
+累次极限存在,重极限不存在:\\
+$\lim\limits_{x\to0,y\to0}\dfrac{xy}{x^2+y^2},\lim\limits_{x\to0}\lim\limits_{y\to0}\dfrac{xy}{x^2+y^2}=0$\\
+$\lim\limits_{x\to0,y\to0}\dfrac{x-y}{x+y},\lim\limits_{x\to0}\lim\limits_{y\to0}\dfrac{x-y}{x+y}=1\not=\lim\limits_{y\to0}\lim\limits_{x\to0}\dfrac{x-y}{x+y}=-1$\\
+重极限存在,累次极限不存在\\
+$\lim\limits_{x\to0,y\to0}x\sin\dfrac{1}{y}+y\cos\dfrac{1}{x}=0$\\
+定理:\\
+若$\lim\limits_{x\to x_0,y\to y_0}f(x,y)=A$\\
+且$\lim\limits_{x\to x_0}\lim\limits_{y\to y_0}f(x,y)=B$
+则$ B=A $\\
+4.18\\
+(可微,连续,可导)\\
+$A=z_x,B=z_y,\rho=\sqrt{\Delta x^2+\Delta y^2}$,全增量$\Delta z=f(x_0+\Delta x,y_0+\Delta y)-f(x_0,y_0)$\\
+连续,可导不可微:\\
+$ z=\sqrt{|xy|},z_x(0,0)=\lim\limits_{x\to0}\dfrac{f(x,0)-f(0,0)}{x-0}=\lim\limits_{x\to0}\dfrac{0}{x}=0=z_y
+$\\
+$
+\dfrac{\Delta z-(A\Delta x+B\Delta y)}{\rho}=\dfrac{\sqrt{|\Delta x\Delta y|}-0}{\sqrt{\Delta x^2+\Delta y^2}}\not\to0
+$\\
+偏导数不连续:\\
+$\\
+f(x,y)=\left\{
+\begin{array}{cl}
+(x^2+y^2)\sin\dfrac{1}{x^2+y^2}&x^2+y^2\not=0\\
+0&x^2+y^2=0\\
+\end{array}
+\right.
+$\\
+$
+\dfrac{\partial f}{\partial x}=\left\{
+\begin{array}{cl}
+2x(\sin\dfrac{1}{x^2+y^2}-\dfrac{1}{x^2+y^2}\cos\dfrac{1}{x^2+y^2})&x^2+y^2\not=0\\
+0&x^2+y^2=0\\
+\end{array}
+\right.
+$\\
+空间曲线的切线(法平面):
+$
+\Gamma:
+\left\{
+\begin{array}{l}
+x=x(t)\\
+y=y(t)\\
+z=z(t)\\
+\end{array}
+\right.
+$\\
+在$ t=t_0 $处切线方程:
+$
+\dfrac{x-x(t_0)}{x'(t_0)}=\dfrac{y-y(t_0)}{y'(t_0)}=\dfrac{z-z(t_0)}{z'(t_0)}
+$\\
+切向量(切线的方向向量):$ \{x'(t_0),y'(t_0),z'(t_0)\} $\\
+法平面:$ x'(t_0)(x-x(t_0))+y'(t_0)(y-y(t_0))+z'(t_0)(z-z(t_0))=0 $\\
+空间曲平面的切平面(法线):\\
+曲面$ \Sigma:F(x(t),y(t),z(t))=0 $\\
+曲面上的任意一条曲线:
+$
+\Gamma:
+\left\{
+\begin{array}{l}
+x=x(t)\\
+y=y(t)\\
+z=z(t)\\
+\end{array}
+\right.
+$\\
+切平面:$ F_x(x-x_0)+F_y(y-y_0)+F_z(z-z_0)=0 $\\
+法线:
+$
+\dfrac{x-x_0}{F_x}=\dfrac{y-y_0}{F_y}=\dfrac{z-z_0}{F_z}
+$\\
+(高阶偏导数(全微分))\\
+4.20\\
+(一些定理,分布函数)\\
+4.25\\
+(高阶微分,隐函数微分法,多元微分?,多元函数的泰勒展开)\\
+4.27\\
+极值:\\
+求偏导得出驻点$ (x_0,y_0) $\\
+$ f_{x,x}(x_0,y_0)=A,f_{x,y}(x_0,y_0)=B,f_{y,y}(x_0,y_0)=C $\\
+极大值:$ B^2-AC<0,A<0 $,极小值:$ B^2-AC<0,A>0 $\\
+条件极值:\\
+$ z(x,y) $(目标函数)在满足$ \varphi(x,y)=0 $(约束条件)的条件下的极值(拉格朗日数乘法)\\
+$
+L(x,y,\lambda)=f(x,y)+\lambda\varphi(x,y):
+\left\{
+\begin{aligned}
+&\dfrac{\partial L}{\partial x}=0\\
+&\dfrac{\partial L}{\partial y}=0\\
+&\dfrac{\partial L}{\partial \lambda}=\varphi(x,y)=0\\
+\end{aligned}
+\right.
+$\\
+$ u=f(x,y,z) $在$ \varphi(x,y,z)=0,\psi(x,y,z)=0 $的极值:\\
+$
+L(x,y,\lambda,\psi)=f(x,y,z)+\lambda\varphi(x,y,z)+\mu\psi(x,y,z):
+\left\{
+\begin{aligned}
+&\dfrac{\partial L}{\partial x}=0\\
+&\dfrac{\partial L}{\partial y}=0\\
+&\dfrac{\partial L}{\partial z}=0\\
+&\varphi(x,y,z)=0\\
+&\psi(x,y,z)=0\\
+\end{aligned}
+\right.
+$\\
+5.2\\
+(例题)\\
+5.4\\
+微分方程:\\
+1可分离变量方程\\
+2可化为分离变量的方程\\
+2-1\\
+$\dfrac{dy}{dx}=f(ax+by+c)$\\
+$u=ax+by+c,du=adx+bdy\to\dfrac{du}{dx}=a+bf(u)$\\
+2-2\\
+$\dfrac{dy}{dx}=f(\dfrac{y}{x})$\\
+$u=\dfrac{y}{x},y=xu,\dfrac{dy}{dx}=\dfrac{du}{dx}x+u\to\dfrac{du}{dx}x+u=f(u)$\\
+2-3\\
+$\dfrac{dy}{dx}f(\dfrac{a_1x+b_1y+c_1}{a_2x+b_2y+c_2})$\\
+2-3-1\\
+$ c_1=c_2=0 $,同2-2\\
+2-3-2\\
+$ c_1,c_2 $至少有一个不为0\\
+2-3-2-1\\
+$
+\left|
+\begin{array}{cc}
+a_1&b_1\\
+a_2&b_2\\
+\end{array}
+\right|\not=0
+$\\
+$ u=a_1x+b_1y+c_1,v=a_2x+b_2y+c_2\to du=a_1dx+b_1dy,dv=a_2dx+b_2dy $\\
+$dx=\dfrac{b_2du-b_1dv}{a_1b_2-a_2b_1},dy=\dfrac{a_1dv-a_2du}{a_1b_2-a_2b_1}\to\dfrac{b_2du-b_1dv}{a_1dv-a_2du}=f(\dfrac{u}{v})\to z=\dfrac{u}{v}...$\\
+2-3-2-2\\
+$
+\left|
+\begin{array}{cc}
+a_1&b_1\\
+a_2&b_2\\
+\end{array}
+\right|=0\Rightarrow(a_2,b_2)=k(a_1,b_1)
+$\\
+$u=a_1x+b_1y,du=a_1dx+b_1dy,\dfrac{du}{dx}=a_1+b_1\dfrac{dy}{dx}=a_1+b_1f(\dfrac{du+c_1}{kdu+c_2})...$\\
+5.9\\
+3一阶线性微分方程\\
+一阶线性微分方程:$ \dfrac{dy}{dx}+P(x)y=Q(x) $ (1)\\
+一阶齐次的线性微分方程:$ \dfrac{dy}{dx}+P(x)y=0 $ (2)\\
+(2):$ \dfrac{dy}{y}=-P(x)dx\to ln|y|=-\int P(x)dx+C,y=Ce^{-\int P(x)dx} $\\
+常数变易法:\\
+设(1)有形如$ y=C(x)e^{-\int P(x)dx} $的解\\
+$ \dfrac{dy}{dx}=C'(x)e^{-\int P(x)dx}-C(x)P(x)e^{-\int P(x)dx} $\\
+$ C'(x)e^{-\int P(x)dx}-C(x)P(x)e^{-\int P(x)dx}+P(x)C(x)e^{-\int P(x)dx}=C'(x)e^{-\int P(x)dx}=Q(x) $\\
+$ C'(x)=Q(x)e^{\int P(x)dx},C(x)=\int Q(x)e^{P(x)dx}dx+C $\\
+(1)的通解为$ y=(\int Q(x)e^{P(x)dx}dx+C)e^{-\int P(x)dx} $\\
+4可化为一阶线性的方程\\
+$ f'(y)\dfrac{dy}{dx}+P(x)f(y)=Q(x) $ (3)\\
+令$ u=f(y),\dfrac{du}{dx}=f'(y)\dfrac{dy}{dx} $\\
+(3):$ \dfrac{du}{dx}+P(x)u=Q(x) $\\
+伯努利方程:$ \dfrac{dy}{dx}+P(x)y=Q(x)y^{\alpha}\quad (\alpha\not=0,1) $ (4)\\
+$ y^{-\alpha}\dfrac{dy}{dx}+P(x)y^{1-\alpha}=Q(x) $ (5)\\
+令$ u=y^{1-\alpha},\dfrac{du}{dx}=(1-\alpha)y^{-\alpha}\dfrac{dy}{dx} $\\
+(5):$ \dfrac{du}{dx}+(a-\alpha)P(x)u=(1-\alpha)Q(x) $\\
+5全微分方程\\
+$ P(x,y)dx+Q(x,y)dy=0 $,如果$ \dfrac{\partial Q}{\partial x}=\dfrac{\partial P}{\partial y} $,则为全微分方程\\
+$ \exists u(x,y) $,使得$ du(x,y)=P(x,y)dx+Q(x,y)dy $,原方程的通解为$ u(x,y=C) $\\
+$ u=\int_{(x_0,y_0)}^{(x,y)}Pdx+Qdy=\int_{x_0}^{x}P(x,y_0)dx+\int_{y_0}^{y}Q(x,y)dy $\\
+(或$ \int_{x_0}^{x}P(x,y)dx+\int_{y_0}^{y}Q(x_0,y)dy $)\\
+积分因子:\\
+如果存在$ \mu(x,y) $使得$ \mu(x,y)P(x,y)dx+\mu(x,y)Q(x,y)dy=0 $为全微分方程,则称$ \mu(x,y) $为积分因子\\
+$ \mu(x,y) $是积分因子的充要条件:$ \dfrac{\partial(\mu Q)}{\partial x}=\dfrac{\partial(\mu P)}{\partial y} $,即$ Q\dfrac{\partial\mu}{\partial x}-P\dfrac{\partial\mu}{\partial y}=(\dfrac{\partial P}{\partial y}-\dfrac{\partial Q}{\partial x})\mu $\\
+-5-1$ \mu=\mu(x) $\\
+$ -\dfrac{\partial\mu}{\partial x}=\mu(x)\dfrac{\dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y}}{Q} $,如果$ \dfrac{\dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y}}{Q} $是$ x $的函数$ \varphi(x) $,则$ \mu(x)=e^{\int\varphi(x)dx} $\\
+-5-2$ \mu=\mu(y) $\\
+如果$ \dfrac{\dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y}}{P}=\psi(y) $,则$ \mu(y)=e^{\int\psi(y)} $\\
+6两种特殊的二阶微分方程\\
+6-1$ y''=f(x,y') $,不含未知数$ y $\\
+令$ y'=p $,则$ y''=\dfrac{dp}{dx},\dfrac{dp}{dx}=f(x,p) $\\
+6-2$ y''=f(y,y') $,不含自变量$ x $\\
+令$ y'=p,y''=\dfrac{dp}{dx}=\dfrac{dp}{dy}\dfrac{dy}{dx}=x\dfrac{dp}{dy} $,方程变为$ p\dfrac{dp}{dy}=f(y,p) $\\
+(二阶线性微分方程)\\
+7二阶常系数线性微分方程\\
+$ y''+py'+qy=f(x)\quad (p,q $为常数) (5)\\
+二阶常系数线性齐次方程:$ y''+py'+q=0 $ (6)\\
+(6)的特征方程:$ \lambda^2+p\lambda+q=0 $,它的根称为特征根\\
+7-1$ p^2-4q>0 $,特征方程有两个不同的根$ \lambda_1,\lambda_2 $\\
+$ e^{\lambda_1x},e^{\lambda_2x} $是(6)的两个线性无关的解,所以(6)的通解为$ y=C_1e^{\lambda_1x}+C_2e^{\lambda_2x} $\\
+7-2$ p^2-4q=0 $,特征方程有一个重根$ \lambda(=-\dfrac{p}{2}) $\\
+若$ y=u(x)e^{\lambda x} $为(6)的一个解\\
+$ y'=u'(x)e^{\lambda x}+\lambda u(x)e^{\lambda x},y''=u''(x)e^{\lambda x}+2\lambda u'(x)e^{\lambda x}+\lambda^2u(x)e^{\lambda x}\\
+u''(x)e^{\lambda x}+e^{\lambda x}(2\lambda+p)u'(x)+e^{\lambda x}(\lambda^2+p\lambda+q)u(x)=u''(x)=0,u(x)=x+C $\\
+(6)的通解为$ y=C_1e^{\lambda x}+C_2xe^{\lambda x} $\\
+7-3$ p^2-4q<0,\lambda_1=\alpha+i\beta,\lambda_2=\alpha-i\beta $为特征方程两根(共轭复根)\\
+(6)的两个线性无关实解:$ y_1=e^{\alpha x}\cos\beta x,y_2=e^{\alpha x}\sin\beta x $\\
+(6)的通解为$ y=e^{\alpha x}(C_1\cos\beta x+C_2\sin\beta x) $\\
+5.11\\
+-7-1常数变易法\\
+$ y_1(x),y_2(x) $为(6)d的两个线性无关的解,(6)的通解:$ y=C_1y_1(x)+C_2y_2(x) $\\
+设$ y=C_1(x)y_1(x)+C_2(x)y_2(x) $为(5)的一个解\\
+$ y'=C_1'(x)y_1(x)+C_1(x)y_1'(x)+C_2'(x)y_2(x)+C_2(x)y_2'(x) $\\
+补充方程$ C_1'(x)y_1(x)+C_2'(x)y_2(x)=0 $,则$ y''=C_1'y_1'+C_2'y_2'+C_1y_1''+C_2y_2'' $\\
+带入(1):
+$
+\left\{
+\begin{array}{l}
+C_1'y_1+C_2'y_2=0\\
+C_1'y_1'+C_2'y_2'=f(x)\\
+\end{array}
+\right.
+$\\
+-7-2待定系数法\\
+$ y''+py'+qy=P_m(x)e^{rx}\quad (*) $\\
+令$ y=Q(x)e^{rx},y'=(Q'(x)+rQ(x))e^{rx},y''=(Q''(x)+2rQ'(x)+r^2Q(x))e^{rx} $\\
+带入$ (*):(Q''+2rQ'+r^2Q)e^{rx}+p(Q'+rQ)e^{rx}=P_me^{rx} $\\
+即$ Q''+(2r+p)Q'+(r^2+pr+q)Q=P_m $\\
+-7-2-1$ r $不是特征根\\
+(*)特解:$ y=Q_m(x)e^{rx}(Q_m $为待定系数)\\
+-7-2-2$ r $为特征根的单根\\
+(*)特解:$ y=xQ_m(x)e^{rx} $\\
+-7-2-3$ r $是特征根的二重根\\
+(*)特解:$ y=x^2Q_m(x)e^{rx} $\\
+待定特解形式一览表\\
+\begin{tabular}{c|c|c}
+$ f(x) $&判别特征根及重数&待定特解形式\\
+\hline
+\multirow{3}*{$ be^{\alpha x} $}&$ \alpha $不是特征根&$ Be^{\alpha x} $\\
+~&$ \alpha $是一重特征根&$ Bxe^{\alpha x} $\\
+~&$ \alpha $是二重特征根&$ Bx^2e^{\alpha x} $\\
+\hline
+\multirow{2}*{$ P_m(x) $}&0不是特征根($ q\not=0 $)&$ Q_m(x) $\\
+~&0是一重特征根($ q=0,p\not=0 $)&$ xQ_m(x) $\\
+\hline
+\multirow{2}*{$ a\cos\beta x+b\sin\beta x $}&$ i\beta $不是特征根&$ A\cos\beta x+B\sin\beta x $\\
+~&$ i\beta $是特征根&$ x(A\cos\beta x+b\sin\beta x) $\\
+\hline
+\multirow{3}*{$ P_m(x)e^{\alpha x} $}&$ \alpha $不是特征根&$ Q_m(x)e^{\alpha x} $\\
+~&$ \alpha $是一重特征根&$ xQ_m(x)e^{\alpha x} $\\
+~&$ \alpha $是二重特征根&$ x^2Q_m(x)e^{\alpha x} $\\
+\hline
+\multirow{2}*{$ e^{\alpha x}(a\cos\beta x+b\sin\beta x) $}&$ \alpha+i\beta $不是特征根&$ e^{\alpha}(A\cos\beta x+B\sin\beta x) $\\
+~&$ \alpha+i\beta $是特征根&$ xe^{\alpha x}(A\cos\beta x+B\sin\beta x) $\\
+\hline
+\multirow{2}*{$ P_m(x)\cos\beta x $或$ P_m(x)\sin\beta x $}&$ i\beta $不是特征根&$ Q_m(x)\cos\beta x+T_m(x)\sin\beta x $\\
+~&$ i\beta $是特征根&$ x(Q_m(x)\cos\beta x+T_m(x)\sin\beta x) $\\
+\hline
+\multirow{2}*{$ P_m(x)e^{\alpha x}\cos\beta x $或$ P_m(x)e^{\alpha x}\sin\beta x $}&$ \alpha+i\beta $不是特征根&$ e^{\alpha x}(Q_m(x)\cos\beta x+T_m(x)\sin\beta x) $\\
+~&$ \alpha+i\beta $是特征根&$ xe^{\alpha x}(Q_m(x)\cos\beta x+T_m(x)\sin\beta x) $
+\end{tabular}\\
+(某特殊方程)\\
+(欧拉方程,一阶常系数线性方程组)\\
+5.16\\
+(一堆乱七八糟的证明)\\
+(未解出导数的一阶方程,一阶线性常微分方程组)\\
+5.18\\
+8高阶方程\\
+$ y=y_1(x) $是$ y''+p(x)y'+q(x)y=0 $ (*)的一个(非零)特解,设$ y=y_1(x)z $带入(*)\\
+得$ y_1z''+(2y_1'+p(x)y_1)z'+(y_1''+p(x)y_1'+q(x)y_1)z=y_1z''+(2y_1'+p(x)y_1)z'=0 $\\
+令$ z'=u\to y_1u'+(2y_1'+p(x)y_1)u=0\to u=\dfrac{C_1}{y_1^2}e^{-\int p(x)dx}=z' $\\
+$ z=C_1\int\dfrac{1}{y_1^2}e^{-\int p(x)dx}dx+C_2 $\\
+所以(*)的通解:$ y=C_1y_1\int\dfrac{1}{y_1^2}e^{-\int p(x)dx}dx+C_2y_1 $\\
+所以另一个与$ y_1(x) $线性无关的特解是$ y_1\int\dfrac{1}{y_1^2}e^{-\int p(x)dx}dx $\\
+5.23\\
+二重积分:\\
+(中值定理)\\
+(乱七八糟的定理)\\
+重积分的换元法:\\
+二重积分$ x=x(u,v),y=y(u,v) $,Jacobi行列式
+$
+J(u,v)=
+\left|
+\begin{aligned}
+\dfrac{\partial x}{\partial u}&\quad \dfrac{\partial x}{\partial v}\\
+\dfrac{\partial y}{\partial u}&\quad \dfrac{\partial y}{\partial v}\\
+\end{aligned}
+\right|(\not=0)
+$\\
+极坐标:$ J(\rho,\theta)=\rho $\\
+5.25\\
+5.30\\
+三重积分
+$ \left\{
+\begin{aligned}
+x=x(u,v,w)\\
+y=y(u,v,w)\\
+z=z(u,v,w)\\
+\end{aligned}
+\right.
+J(u,v,w)=
+\left|
+\begin{aligned}
+\dfrac{\partial x}{\partial u}\quad \dfrac{\partial x}{\partial v}\quad \dfrac{\partial x}{\partial w}\\
+\dfrac{\partial y}{\partial u}\quad \dfrac{\partial y}{\partial v}\quad \dfrac{\partial y}{\partial w}\\
+\dfrac{\partial z}{\partial u}\quad \dfrac{\partial z}{\partial v}\quad \dfrac{\partial z}{\partial w}
+\end{aligned}
+\right|
+ $\\
+柱坐标:$ J(\rho,\theta,z)=\rho $\\
+球面坐标:$ J(r,\varphi,\theta)=r^2\sin\varphi(\phi $是与$ z $轴坐标的夹角)\\
+(曲面面积(换元?))\\
+曲面面积的计算:\\
+(不明推导)\\
+光滑曲面$ S:z=f(x,y),S $的面积$ A(S)=\iint\limits_{D}\sqrt{1+f_x'^2+f_y'^2}dxdy,D $是$ xy $平面上的区域\\
+6.1\\
+广义重积分\\
+无界区域:$ \iint\limits_{D} f(x,y)dxdy=\lim\limits_{D_l\to D}\iint\limits_{D_l} f(x,y)dxdy $\\
+无界函数:$ \iint\limits_{D}f(x,y)dxdy=\lim\limits_{D_l\to P_0}\iint\limits_{D_l}f(x,y)dxdy $\\
+第一型曲线积分(对弧长的积分?):\\
+$ x=x(t),y=y(t),z=z(t),\alpha\le t\le\beta $\\
+$ \int_{\overset{\frown}{AB}}f(x,y,z)ds=\int_{\alpha}^{\beta}f(x(t),y(t),z(t))\sqrt{x'^2(t)+y'^2(t)+z'^2(t)}dt $\\
+6.6\\
+第二型曲线积分(对坐标的积分?):\\
+$ x=x(t),y=y(t),z=z(t) $,起点$ A:t=\alpha, $终点$ B:t=\beta $\\
+$ \int_{\overset{\frown}{AB}}\overrightarrow{F}d\overrightarrow{r}=\int_{\overset{\frown}{AB}}f(x,y,z)dx+f(x,y,z)dy+f(x,y,z)dz\\
+=\int_{\alpha}^{\beta}f(x(t),y(t),z(t))x'(t)dt+f(x(t),y(t),z(t))y'(t)dt+f(x(t),y(t),z(t))z'(t)dt $\\
+(平面曲线积分?)\\
+格林公式:\\
+$ D $是平面上闭区域,$ D $的边界$ \Gamma $取正向(被积分区域在路径左手边?)\\
+函数$ P,Q $连续且有一阶连续偏导数\\
+$ \oint\limits_{\Gamma}Pdx+Qdy=\iint\limits_{D}(\dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y})dxdy $
+\\
+积分与路径无关$ \Leftrightarrow\dfrac{\partial P}{\partial y}=\dfrac{\partial Q}{\partial x} $\\
+第一型曲面积分\\
+投影到$ xy $平面:$ \iint\limits_{S}f(x,y,z)dS=\iint\limits_{D_{xy}}f(x,y,z(x,y))\sqrt{1+z_x^2+z_y^2}dxdy $\\
+(第二型曲面积分)\\
+(参数计算曲面面积)\\
+6.13\\
+高斯公式:\\
+$ \Omega $是空间的连通有界闭区域,边界是由有限块光滑曲面组成的封闭曲面$ S $\\
+函数$ P,Q,R $及偏导数在$ \Omega $上连续:\\
+$ \varoiint\limits_{S}Pdydz+Qdzdx+Rdxdy=\iiint\limits_{\Omega}(\dfrac{\partial P}{\partial x}+\dfrac{\partial Q}{\partial y}+\dfrac{\partial R}{\partial z})dxdydz,S $取外侧\\
+$ Stokes $公式:\\
+$ S $是空间区域$ \Omega $内有界光滑双侧曲面,边界为光滑闭曲线$ L $\\
+函数$ P,Q,R $在$ \Omega $上连续,且有一阶连续偏导数\\
+$ \oint_L Pdx+Qdy+Rdz=\iint\limits_{S}(\dfrac{\partial R}{\partial y}-\dfrac{\partial Q}{\partial z})dydz+(\dfrac{\partial P}{\partial z}-\dfrac{\partial R}{\partial x})dzdx+(\dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y})dxdy\\
+=\iint\limits_{S}
+\left|
+\begin{array}{ccc}
+dydz\quad&dzdx\quad&dxdy\\
+\dfrac{\partial}{\partial x}\quad&\dfrac{\partial}{\partial y}\quad&\dfrac{\partial}{\partial z}\\
+P\quad&Q\quad&R
+\end{array}
+\right|=
+\iint\limits_{S}
+\left|
+\begin{array}{ccc}
+\cos\alpha&\cos\beta&\cos\gamma\\
+\dfrac{\partial}{\partial x}\quad&\dfrac{\partial}{\partial y}\quad&\dfrac{\partial}{\partial z}\\
+P\quad&Q\quad&R
+\end{array}
+\right| $\\
+其他:\\
+正向边界:区域在左手边\\
+曲面正向:外正内负,右正左负,前正后负\\
+6.20最终整理\\
+6.22最终整理\\
+微分方程:\\
+可分离变量方程\\
+一阶齐次方程\\
+一阶线性非齐次方程\\
+常见的可降阶的高次方程\\
+全微分方程\\
+二阶常系数非齐次方程\\
+问题:\\
+$ y'^3+y^2=xyy' $\\
+范围?隐函数微分法,二阶线性微分方程,某特殊方程,欧拉方程,一阶常系数线性方程组,未解出导数的一阶方程,重积分中值定理,第二型曲线积分,第二型曲面积分,参数计算曲面面积\\
+\end{document}

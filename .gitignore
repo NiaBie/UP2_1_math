@@ -1,0 +1,8 @@
+*.pdf
+*.out
+*.log
+/暂不用
+*.gz
+*.toc
+*.aux
+

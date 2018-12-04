@@ -1,0 +1,220 @@
+\documentclass[11pt, a4paper, UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{esint}
+\usepackage{geometry}
+\usepackage{amssymb}
+\pagestyle{empty}
+\definecolor{brightpink}{rgb}{1.0, 0.0, 0.5}
+\definecolor{ao}{rgb}{0.0, 0.5, 0.0}
+\usepackage[colorlinks,linkcolor=ao,anchorcolor=brightpink,citecolor=green,CJKbookmarks=True]{hyperref}
+\CTEXsetup[format={\Large\bfseries}]{section}
+\geometry{a4paper,top=1cm,bottom=1cm,left=2cm}
+%\renewcommand{\baselinestretch}{1}\normalsize
+\begin{document}
+\indent\\
+\large
+\raggedright
+\def\fuck{\maltese}
+\hypertarget{catalog}{}
+\tableofcontents
+\setcounter{secnumdepth}{-1}
+\section{预备知识\protect\hyperlink{catalog}{$\fuck$}}
+\subsection{积化和差}
+\[\sin\alpha\cos\beta=\dfrac{1}{2}[\sin(\alpha+\beta)+\sin(\alpha-\beta)]\]
+$$e^{xi}=\cos x+i\sin x$$
+$$e^{-xi}=\cos x-i\sin x$$
+$$\cos y=\dfrac{1}{2}(e^{iy}+e^{-iy}),\sin y=\dfrac{-i}{2}(e^{iy}-e^{-iy})$$
+\subsection{矩阵求导}
+标量/行向量\\
+\[\dfrac{\partial y}{\partial\bm x}=
+\begin{bmatrix}
+\dfrac{\partial y}{\partial x_1}&\dfrac{\partial y}{\partial x_2}&\cdots&\dfrac{\partial y}{\partial x_n}
+\end{bmatrix}
+\]
+标量/列向量\\
+\[\dfrac{\partial y}{\partial\bm x}=
+\begin{bmatrix}
+\dfrac{\partial y}{\partial x_1}\\
+\dfrac{\partial y}{\partial x_2}\\
+\vdots\\
+\dfrac{\partial y}{\partial x_n}
+\end{bmatrix}
+\]
+列向量/行向量\\
+\[\dfrac{\partial\bm y}{\partial\bm x}=
+\begin{bmatrix}
+\dfrac{\partial y_1}{\partial x_1}&\dfrac{\partial y_1}{\partial x_2}&\cdots&\dfrac{\partial y_1}{\partial x_n}\\
+\dfrac{\partial y_2}{\partial x_1}&\dfrac{\partial y_2}{\partial x_2}&\cdots&\dfrac{\partial y_2}{\partial x_n}\\
+\vdots&\vdots&\vdots&\vdots\\
+\dfrac{\partial y_n}{\partial x_1}&\dfrac{\partial y_n}{\partial x_2}&\cdots&\dfrac{\partial y_n}{\partial x_n}\\
+\end{bmatrix}
+\]
+行向量/列向量\\
+\[\dfrac{\partial\bm y}{\partial\bm x}=
+\begin{bmatrix}
+\dfrac{\partial y_1}{\partial x_1}&\dfrac{\partial y_2}{\partial x_1}&\cdots&\dfrac{\partial y_n}{\partial x_1}\\
+\dfrac{\partial y_1}{\partial x_2}&\dfrac{\partial y_2}{\partial x_2}&\cdots&\dfrac{\partial y_n}{\partial x_2}\\
+\vdots&\vdots&\vdots&\vdots\\
+\dfrac{\partial y_1}{\partial x_n}&\dfrac{\partial y_2}{\partial x_n}&\cdots&\dfrac{\partial y_n}{\partial x_n}\\
+\end{bmatrix}
+\]
+矩阵/标量($p\times q$)(原矩阵)\\
+\[\dfrac{\partial\bm Y}{\partial x}=
+\begin{bmatrix}
+\dfrac{\partial y_{11}}{\partial x}&\dfrac{\partial y_{12}}{\partial x}&\cdots&\dfrac{\partial y_{1n}}{\partial x}\\
+\dfrac{\partial y_{21}}{\partial x}&\dfrac{\partial y_{22}}{\partial x}&\cdots&\dfrac{\partial y_{2n}}{\partial x}\\
+\vdots&\vdots&\vdots&\vdots\\
+\dfrac{\partial y_{m1}}{\partial x}&\dfrac{\partial y_{m2}}{\partial x}&\cdots&\dfrac{\partial y_{mn}}{\partial x}\\
+\end{bmatrix}
+\]
+标量/矩阵(行数$\times$列数)($n\times m$)(转置矩阵)\\
+\[\dfrac{\partial y}{\partial\bm X}=
+\begin{bmatrix}
+\dfrac{\partial y}{\partial x_{11}}&\dfrac{\partial y}{\partial x_{21}}&\cdots&\dfrac{\partial y}{\partial x_{p1}}\\
+\dfrac{\partial y}{\partial x_{12}}&\dfrac{\partial y}{\partial x_{22}}&\cdots&\dfrac{\partial y}{\partial x_{p2}}\\
+\vdots&\vdots&\vdots&\vdots\\
+\dfrac{\partial y}{\partial x_{1q}}&\dfrac{\partial y}{\partial x_{2q}}&\cdots&\dfrac{\partial y}{\partial x_{pq}}\\
+\end{bmatrix}
+\]
+\subsection{行列式求导}
+\[F_n'(x)
+\begin{vmatrix}
+f_{11}(x)&f_{12}(x)&\cdots&f_{1n}(x)\\
+\vdots&\vdots&\vdots&\vdots\\
+f_{i1}(x)&f_{i2}(x)&\cdots&f_{in}(x)\\
+\vdots&\vdots&\vdots&\vdots\\
+f_{n1}(x)&f_{n2}(x)&\cdots&f_{nn}(x)\\
+\end{vmatrix}
+'=\sum_{i=1}^n
+\begin{vmatrix}
+f_{11}(x)&f_{12}(x)&\cdots&f_{1n}(x)\\
+\vdots&\vdots&\vdots&\vdots\\
+f'_{i1}(x)&f'_{i2}(x)&\cdots&f'_{in}(x)\\
+\vdots&\vdots&\vdots&\vdots\\
+f_{n1}(x)&f_{n2}(x)&\cdots&f_{nn}(x)\\
+\end{vmatrix}
+\]
+\section{一阶(变系数)线性微分方程\protect\hyperlink{catalog}{$\fuck$}}
+$$y'+p(x)y=q(x)$$
+\section{二阶常系数线性微分方程\protect\hyperlink{catalog}{$\fuck$}}
+$$y''+py'+qy=f(x)$$
+\subsection{特征根法}
+$$\lambda^2+p\lambda+q=0$$
+(1)$p^2-4q>0$,特征方程有两个不同的根$\lambda_1,\lambda_2$,通解为\\
+$$y=C_1e^{\lambda_1x}+C_2e^{\lambda_2x}$$
+(2)$p^2-4q=0$,特征方程有一个重根$\lambda=-\dfrac{p}{2}$,通解为\\
+$$y=C_1e^{\lambda x}+C_2xe^{\lambda x}$$
+(3)$p^2-4q<0,\lambda_1=\alpha+\beta i,\lambda_2=\alpha-\beta i$(共轭复根),通解为\\
+$$y=e^{\alpha x}(C_1\cos\beta x+C_2\sin\beta x)$$
+\section{线性方程组\protect\hyperlink{catalog}{$\fuck$}}
+$$\dfrac{d\bm{y}}{dx}=A\bm{y}$$
+\section{常数变易法(p44)\protect\hyperlink{catalog}{$\fuck$}}
+非齐次方程通解\\
+$$y=C_1(x)y(x)+C_2(x)y(x)$$
+补充方程\\
+$$C_1'(x)y_1(x)+C_2'(x)y_2(x)=0$$
+则\\
+$$
+\begin{cases}
+C_1'y_1+C_2'y_2=0\\
+C_1'y_1'+C_2'y_2'=f(x)
+\end{cases}
+$$
+\section{刘维尔(Liouville)定理\protect\hyperlink{catalog}{$\fuck$}}
+\subsection{刘维尔公式(中国科技大学)}
+函数$y_1(x)$与$y_2(x)$是二阶齐次线性微分方程\\
+\[y''+p(x)y'+q(x)y=0\]
+在区间$(a,b)$上的两个解,则其朗斯基行列式为\\
+\[W(x)=W(x_0)e^{-\int_{x_0}^xp(t)dt}\]
+其中$x_0$是$(a,b)$上的任意固定点\\
+Liouville公式表明,$y_1(x),y_2(x)$的朗斯基行列式要么恒为$0$,要么不等于$0$\\
+证明:\\
+\[W'(x)=(y_1y'_2-y'_1y_2)'=y_1y''_2+y'_1y'_2-y'_1y'_2-y''_1y_2\]
+\[=-y_1(p(x)y'_2+q(x)y_2)+y_2(p(x)y'_1+q(x)y_1)\]
+\[=p(x)(-y_1y'_2+y'_1y_2)=-p(x)W(x)\]
+则有???\\
+\[\int_{x_0}^x\dfrac{dW}{W}=-\int_{x_0}^xp(x)dx\]
+\[\ln\dfrac{W(x)}{W(x_0)}=-\int_{x_0}^xp(x)dx\]
+\[W(x)=W(x_0)e^{-\int_{x_0}^xp(x)dx}\]
+\subsection{刘维尔公式(丁同仁p162)}
+\[W(x)=W(x_0)e^{\int_{x_0}^xtr[\bm A(x)]dx}\]
+注:\\
+\[W(x)=
+\begin{vmatrix}
+y_{11}(x)&y_{12}(x)&\cdots&y_{1n}(x)\\
+y_{21}(x)&y_{22}(x)&\cdots&y_{2n}(x)\\
+\vdots&\vdots&\vdots&\vdots\\
+y_{n1}(x)&y_{n2}(x)&\cdots&y_{nn}(x)\\
+\end{vmatrix}\]
+证明:\\
+\[\dfrac{dW}{dx}=\sum_{i=1}^n
+\begin{vmatrix}
+y_{11}&y_{12}&\cdots&y_{1n}\\
+\vdots&\vdots&\vdots&\vdots\\
+\dfrac{dy_{i1}}{dx}&\dfrac{dy_{i2}}{dx}&\cdots&\dfrac{dy_{in}}{dx}\\
+\vdots&\vdots&\vdots&\vdots\\
+y_{n1}&y_{n2}&\cdots&y_{nn}\\
+\end{vmatrix}
+\overset{\mbox{\tiny{右式矩阵相乘}}}{=}\sum_{i=1}^n
+\begin{vmatrix}
+y_{11}&y_{12}&\cdots&y_{1n}\\
+\vdots&\vdots&\vdots&\vdots\\
+\sum_{j=1}^na_{ij}y_{j1}&\sum_{j=1}^na_{ij}y_{j2}&\cdots&\sum_{j=1}^na_{ij}y_{jn}\\
+\vdots&\vdots&\vdots&\vdots\\
+y_{n1}&y_{n2}&\cdots&y_{nn}\\
+\end{vmatrix}\]
+\[\overset{\mbox{\tiny{行成比例=0}}}{=}\sum_{i=1}^na_{ii}W=tr[\bm A(x)]W\]
+%\textbf{刘维尔定理(中国科技大学)}\\
+%函数$y_1(x)$与$y_2(x)$是二阶齐次线性微分方程
+%$$y''+p(x)y'+q(x)y=0$$
+%在区间$(a,b)$上的两个解,则$y_1(x)$与$y_2(x)$在区间$(a,b)$上线性无关的充要条件是朗斯基行列式处处不为$0$\\
+%$$W(x)=W(x_0)e^{\int_{x_0}^xtr[A(x)]dx}(a<x<b)$$
+\section{傅里叶级数展开\protect\hyperlink{catalog}{$\fuck$}}
+\subsection{傅里叶系数}
+$$a_k=\dfrac{1}{\pi}\int_{-\pi}^{\pi}f(x)\cos kxdx$$
+$$b_k=\dfrac{1}{\pi}\int_{-\pi}^{\pi}f(x)\sin kxdx$$
+形式和\\
+$$\dfrac{a_0}{2}+\sum_{k=1}^{\infty}(a_k\cos kx+b_k\sin kx)$$
+称为$f$的傅里叶级数或傅里叶展开,记为\\
+$$f(x)\sim\dfrac{a_0}{2}+\sum_{k=1}^{\infty}(a_k\cos kx+b_k\sin kx)$$
+(或)\\
+$$\dfrac{a_0}{2}+\sum_{n=1}^{+\infty}(a_n\cos n\omega t+b_n\sin n\omega t)$$
+其中$\omega=\dfrac{2\pi}{T}$\\
+\subsection{一般区间上的傅里叶级数展开}
+(1)$y=f(x),x\in[-l,l]$\\
+(2)$y=f(x),x\in[0,l]$\\
+(3)$y=f(x),x\in[a,b]$\\
+\section{逐项积分、求导(p61)\protect\hyperlink{catalog}{$\fuck$}}
+\subsection{逐项积分}
+设$f(x)$在$[-\pi,\pi]$上黎曼可积,则\\
+\[\dfrac{a_0}{2}x+\sum_{k=1}^{\infty}(\dfrac{a_k}{k}\sin kx+\dfrac{b_k}{k}(1-\cos kx))\]
+恒收敛,且\\
+\[\int_0^xf(t)dt=\dfrac{a_0}{2}x+\sum_{k=1}^{\infty}(\dfrac{a_k}{k}\sin kx+\dfrac{b_k}{k}(1-\cos kx)),x\in[-\pi,\pi]\]
+$$F(x)-\dfrac{a_0}{2}x=\dfrac{A_0}{2}+\sum_{n=1}^{\infty}(A_n\cos nx+B_n\sin nx)$$
+其中\\
+$$\dfrac{A_0}{2}=\sum_{n=1}^{\infty}\dfrac{b_n}{n},A_n=-\dfrac{b_n}{n},B_n=\dfrac{a_n}{n}$$
+\subsection{逐项求导}
+设$f(x)$在$[-\pi,\pi]$上连续,$f'(x)$除有限个点外在$[-\pi,\pi]$上处处存在且正常可积,以及$f(\pi)=f(-\pi)$,则$f'(x)$有傅里叶级数\\
+$$\dfrac{f'(x+)+f'(x-)}{2}=f'(x)\sim\sum_{n=1}^{\infty}(nb_n\cos nx-na_n\sin nx)$$
+\section{Parseval等式(p310)\protect\hyperlink{catalog}{$\fuck$}}
+\subsection{Parseval等式}
+设$f\in\mathbb{R}^2[-\pi,\pi]$,且f的傅里叶展开为\\
+$$f\sim\dfrac{a_0}{2}+\sum_{n=1}^\infty(a_n\cos nx+b_n\sin nx)$$
+则\\
+$$\dfrac{1}{\pi}\int_{-\pi}^{\pi}f^2(x)dx=\dfrac{a_0^2}{2}+\sum_{n=1}^{\infty}(a_n^2+b_n^2)$$
+\subsection{广义Parseval等式}
+设$f,g\in\mathbb{R}^2[-\pi,\pi]$,则\\
+$$\dfrac{1}{\pi}\int_{-\pi}^{\pi}f(x)g(x)dx=\dfrac{a_0\alpha_0}{2}+\sum_{n=1}^{\infty}(a_n\alpha_n+b_n\beta_n)$$
+\section{狄利克雷核(p285)\protect\hyperlink{catalog}{$\fuck$}}
+$$\sigma_n(x)=\dfrac{1}{2}\sum_{k=-n}^{n}e^{ikx}=\dfrac{1}{2}+\cos x+\cos 2x+\cdots+\cos nx$$
+利用等式\\
+$$\sin\dfrac{1}{2}x\cos kx=\dfrac{1}{2}[\sin(k+\dfrac{1}{2})x-\sin(k-\dfrac{1}{2})x]$$
+$$\sigma_n(x)=\dfrac{\sin(n+\dfrac{1}{2})}{2\sin(\dfrac{1}{2}x)}$$
+\section{黎曼-勒贝格引理(p283)\protect\hyperlink{catalog}{$\fuck$}}
+设$f(x)$在$[a,b)$上黎曼可积(或广义绝对可积),$a>0$,则\\
+$$\lim\limits_{\lambda\to\infty}\int\limits_a^bf(x)\cos\lambda xdx=0$$
+$$\lim\limits_{\lambda\to\infty}\int\limits_a^bf(x)\sin\lambda xdx=0$$
+\section{初值问题(p229)\protect\hyperlink{catalog}{$\fuck$}}
+\end{document}

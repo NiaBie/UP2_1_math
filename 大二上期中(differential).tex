@@ -1,0 +1,133 @@
+\documentclass[11pt, a4paper, UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{esint}
+\usepackage{geometry}
+\usepackage{amssymb}
+\pagestyle{empty}
+\definecolor{brightpink}{rgb}{1.0, 0.0, 0.5}
+\usepackage[colorlinks,linkcolor=brightpink,anchorcolor=brightpink,citecolor=green,CJKbookmarks=True]{hyperref}
+\geometry{a4paper,top=1cm,bottom=1cm,left=2cm}
+\CTEXsetup[format={\Large\bfseries}]{section}
+%\renewcommand{\baselinestretch}{1}\normalsize
+\begin{document}
+\large
+\raggedright
+\def\fuck{\maltese}
+\hypertarget{catalog}{}
+\indent\\
+\tableofcontents
+%\begin{Large}
+%\textbf{复值函数(p133)}\\
+%\end{Large}
+%如果对于区间$a\le t\le b$中的每一实数$t$,有复数$z(t)=\phi(t)+i\psi(t)$与它对应,其中$\phi(t)$和$\psi(t)$是在区间$a\le t\le b$上定义的实函数,我们就说在区间$a\le t\le b$上给定了一个复值函数$z(t)$.(极限、连续、导数)\\
+%\begin{Large}
+%\textbf{定理8(p136)}\\
+%\end{Large}
+%如果齐次微分方程
+%$$\dfrac{d^nx}{dt^n}+a_1(t)\dfrac{d^{-1}x}{dt^{n-1}}+\cdots+a_{n-1}(t)\dfrac{dx}{dt}+a_n(t)x=0$$
+%中所有系数$a_i(t)(i=1,2\cdots)$都是实值函数,而$x=z(t)=\phi(t)+i\psi(t)$是方程的复值解,则$z(t)$的实部$\phi(t)$、虚部$\psi(t)$和共轭复值函数$\bar z(t)$也都是方程的解\\
+%\begin{Large}
+%\textbf{定理9(p136)}\\
+%\end{Large}
+%若方程
+%$$\dfrac{d^nx}{dt^n}+a_1(t)\dfrac{d^{-1}x}{dt^{n-1}}+\cdots+a_{n-1}(t)\dfrac{dx}{dt}+a_n(t)x=u(t)+iv(t)$$
+%有复值解$x=U(t)+iV(t)$,那么这个解的实部$U(x)$和虚部$V(x)$分别是方程
+%$$\dfrac{d^nx}{dt^n}+a_1(t)\dfrac{d^{-1}x}{dt^{n-1}}+\cdots+a_{n-1}(t)\dfrac{dx}{dt}+a_n(t)x=u(t)$$
+%$$\dfrac{d^nx}{dt^n}+a_1(t)\dfrac{d^{-1}x}{dt^{n-1}}+\cdots+a_{n-1}(t)\dfrac{dx}{dt}+a_n(t)x=v(t)$$
+%的解\\
+%\begin{Large}
+%\textbf{欧拉待定指数函数法(特征根法)(p137)}\\
+%\end{Large}
+%\begin{Large}
+%\textbf{比较系数法(p145)}\\
+%\end{Large}
+%\begin{Large}
+%\textbf{拉普拉斯变换法(p151)}\\
+%\end{Large}
+\setcounter{secnumdepth}{-1}
+\section{定义1(p189)\protect\hyperlink{catalog}{$\fuck$}}
+设$\bm{A}(t)$是区间$a\le t\le b$上的连续$n\times n$矩阵,$\bm{f}(t)$是同一区间上的连续$n$维向量.方程组
+$$\bm{x}'=\bm{A}(t)\bm{x}+\bm{f}(t)$$
+在某区间$\alpha\le t\le\beta([\alpha,\beta]\subset[a,b])$的解就是向量$\bm{u}(t)$,它的导数$\bm{u}'(t)$在区间$\alpha\le t\le\beta$上连续且满足
+$$\bm{u}'(t)=\bm{A}(t)\bm{u}(t)+\bm{f}(t)$$
+\begin{Large}
+\section{定义2(p189)初值问题\protect\hyperlink{catalog}{$\fuck$}}
+\end{Large}
+$$\bm{x}'=\bm{A}(t)\bm{x}+\bm{f}(t),\bm{x}(t_0)=\bm\eta$$
+\begin{Large}
+\section{(线性相关)(p202)\protect\hyperlink{catalog}{$\fuck$}}
+\end{Large}
+定义在$a\le t\le b$上的向量函数$\bm{x}_1(t),\bm{x}_2(t)...\bm{x}_m(t)$是线性相关的,如果存在不全为0的常数$c_1,c_2...c_m$使得$$c_1\bm{x}_1(t)+c_2\bm{x}_2(t)+...+c_m\bm{x}_m(t)=0$$
+\begin{Large}
+\section{定理3(p203)\protect\hyperlink{catalog}{$\fuck$}}
+\end{Large}
+如果向量函数$\bm{x}_1(t),\bm{x}_2(t)...\bm{x}_n(t)$在区间$a\le t\le b$上线性相关,则他们的朗斯基行列式
+$$
+W[\bm{x}_1(t),\bm{x}_2(t)...\bm{x}_n(t)]=W(t)=
+\begin{bmatrix}
+x_{11}(t)&x_{12}(t)&\cdots&x_{1n}(t)\\
+x_{21}(t)&x_{22}(t)&\cdots&x_{2n}(t)\\
+\vdots&\vdots&\vdots&\vdots\\
+x_{n1}(t)&x_{n2}(t)&\cdots&x_{nn}(t)
+\end{bmatrix}
+=0
+$$
+\begin{Large}
+\section{定理4(p204)\protect\hyperlink{catalog}{$\fuck$}}
+\end{Large}
+如果齐次线性微分方程组
+$$\bm{x}'=\bm{A}(t)\bm x$$
+的解$\bm x_1(t),\bm x_2(t)\cdots\bm x_n(t)$线性无关,那么,他们的朗斯基行列式$W(t)\not=0(a\le t\le b)$\\
+\begin{Large}
+\section{定理5(p204)\protect\hyperlink{catalog}{$\fuck$}}
+\end{Large}
+齐次线性微分方程组一定存在$n$个线性无关的解\\
+\begin{Large}
+\section{定理6(p205)\protect\hyperlink{catalog}{$\fuck$}}
+\end{Large}
+如果$\bm x_1(t),\bm x_2(t)\cdots\bm x_n(t)$是齐次线性微分方程组的$n$个线性无关的解,则齐次线性微分方程组的任一解$\bm x(t)$均可表为
+$$\bm x(t)=c_1\bm x_1(t)+c_2\bm x_2(t)+\cdots+c_n\bm x_n(t)$$
+\begin{Large}
+\section{解矩阵(p207)\protect\hyperlink{catalog}{$\fuck$}}
+\end{Large}
+\begin{Large}
+\section{定理2*(p208)\protect\hyperlink{catalog}{$\fuck$}}
+\end{Large}
+齐次线性微分方程组的一个解矩阵$\bm\Phi(t)$是基解矩阵的充要条件是$\det\bm\Phi(t)\not=0$,而且,如果对某一个$t_0\in[a,b],\det\bm\Phi(t_0)\not=0$,则$\bm\Phi(t)\not=0$\\
+\begin{Large}
+\section{常数变易公式(p212)\protect\hyperlink{catalog}{$\fuck$}}
+\end{Large}
+\begin{Large}
+\section{定理9(p221)\protect\hyperlink{catalog}{$\fuck$}}
+\end{Large}
+矩阵\\
+$$\bm{\Phi}(t)=\exp\bm{A}t$$
+是\\
+$$\bm{x}'=\bm{Ax}$$
+的基解矩阵,且$\bm{\Phi}(0)=\bm{E}$\\
+\begin{Large}
+\section{定义(p224)$\lambda$\protect\hyperlink{catalog}{$\fuck$}}
+\end{Large}
+假设$\bm{A}$是一个$n\times n$常数矩阵,使得关于$\bm{u}$的线性代数方程组\\
+$$(\lambda\bm{E}-\bm{A})\bm u=0$$
+具有非零解的常数$\lambda$称为$\bm{A}$的一个\textbf{特征值},上式的\textbf{对应于}任一特征值$\lambda$的非零解$\bm u$称为$\bm A$的对应于特征值$\lambda$的\textbf{特征向量}\\
+$n$次多项式\\
+$$p(\lambda)\equiv(\lambda\bm E-\bm A)$$
+称为$\bm A$的\textbf{特征多项式},$n$次代数方程\\
+$$p(\lambda)=0$$
+称为$\bm A$的\textbf{特征方程},也称它为\\
+$$\bm x'=\bm{Ax}$$
+的特征方程\\
+\begin{Large}
+\section{定理10(p227)(特征向量$\to$解矩阵)\protect\hyperlink{catalog}{$\fuck$}}
+\end{Large}
+如果矩阵$\bm A$具有$n$个线性无关的特征向量$\bm v_1,\bm v_2\cdots\bm v_n$,他们对应的特征值分别为$\lambda_1,\lambda_2\cdots\lambda_n$(不必各不相同),那么矩阵\\
+$$\bm\Phi(t)=[e^{\lambda_1t}\bm v_1,e^{\lambda_2t}\bm v_2\cdots e^{\lambda_nt}\bm v_n],-\infty<t<+\infty$$
+是常系数线性微分方程组的一个基解矩阵\\
+\begin{Large}
+\section{附注1(p228)\protect\hyperlink{catalog}{$\fuck$}}
+\end{Large}
+$$\exp\bm At=\bm\Phi(t)\bm\Phi^{-1}(0)$$
+\end{document}

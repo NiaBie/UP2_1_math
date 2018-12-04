@@ -1,0 +1,137 @@
+\documentclass[11pt, a4paper, UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\begin{document}
+\indent\\
+3.7\\
+行列式交换两行(列),其值变号\\
+行列式某两行(列)对应成比例,则行列式值=0\\
+\\
+投影:$ Prj_{\vec{l}}\overrightarrow{AB}=\overline{AB} $\\
+\\
+柯西不等式:$ \mid\sum a_ib_i\mid\le(\sum {a_i}^2)(\sum {b_i}^2) $\\
+\\
+向量积(叉乘):$ \vec{a}\times\vec{b}=\vec{c} $\\
+$ \vec{a},\vec{b},\vec{c} $构成右手系\\
+性质:\\
+$ \vec{a}\times\vec{b}=\vec{0}\Leftrightarrow\vec{a}\parallel\vec{b} $\\
+$ \vec{a}=(a_1,a_2,a_3),\vec{b}=(b_1,b_2,b_3) $\\
+\[\vec{a}\times\vec{b}=
+\left| %%%或其他符号，注意转义字符
+\begin{array}{lcr}
+\vec{i}&\vec{j}&\vec{k}\\
+a_1&a_2&a_3\\
+b_1&b_2&b_3\\
+\end{array}
+\right|
+\]\\
+混合积:等于平行六面体的体积\\
+\[
+[\vec{a},\vec{b},\vec{c}]=(\vec{a}\times\vec{b})\vec{c}=
+\left|\begin{array}{lcr}
+a_1&a_2&a_3\\
+b_1&b_2&b_3\\
+c_1&c_2&c_3\\
+\end{array}\right|
+\]\\
+\\
+3.9\\
+平面点法式方程:\\
+$ P_0(x_0,y_0,z_0) $,法向量$ \vec{n}=(A,B,C)\\
+A(x-x_0)+B(y-y_0)+C(z-z_0)=0 $\\
+一般式方程:\\
+$ D=-(Ax_0+By_0+Cz_0)\\
+Ax+By+Cz=0\ (A^2+B^2+C^2\not=0) $\\
+三点式方程:\\
+\[
+\left|\begin{array}{lcr}
+x-x_1&y-y_1&z-z_1\\
+x-x_2&y-y_2&z-z_2\\
+x-x_3&y-y_3&z-z_3\\
+\end{array}\right|=0
+\]\\
+截距式方程:\\
+通过三点$ A(a,0,0),B(0,b,0),C(0,0,c) $的平面\\
+$ \frac{x}{a}+\frac{y}{c}+\frac{z}{c}=1 $\\
+\\
+平面与平面的关系:\\
+$ \Pi_i=A_ix+B_iy+C_iz+D_i=0 $\\
+(1)$ cos\varphi=\frac{|\overrightarrow{n_1}\overrightarrow{n_2}|}{|\overrightarrow{n_1}||\overrightarrow{n_2}|} $\\
+3.14\\
+常见的二次曲面:\\
+旋转面:\\
+轴$ \vec{v}=\{l,m,n\},M(x,y,z) $\\
+曲线
+$$ \varGamma=\left\{
+\begin{aligned}
+F(x,y,z)=0\\
+G(x,y,z)=0\\
+\end{aligned}
+\right.
+$$\\
+$ M(x,y,z) $是$ s $上任意一点(???)$ \overrightarrow{MM_1}\bot\vec{v} $\\
+$$ 
+\left\{
+\begin{aligned}
+&M_0(x_0,y_0,z_0)\subset\varGamma\\
+&F((x_0,y_0,z_0)=0\\
+&G((x_0,y_0,z_0)=0\\
+&|\overrightarrow{MM_1}\times\vec{v}|=|\overrightarrow{M_0M_1}\times\vec{v}|=0\\
+\end{aligned}
+\right.
+$$\\
+\\
+4.8\\
+$ Ax=b $有解的判别\\
+(1)$ b_{r+1}\not=0\Leftrightarrow r(A)=r\not= r(A,b)=r+1\Leftrightarrow Ax=b $无解(不相容)\\
+(2)$ b_{r+1}=0\Leftrightarrow r(A)=r=r(A,b)\Leftrightarrow Ax=b $有解(不相容)\\
+1.当$ r=n $时,$ Ax=b $有唯一解\\
+2.当$ r<n $时,$ Ax=b $有无穷多解\\
+$$ 
+\left\{
+\begin{aligned}
+a_{11}x_1+a_{12}x_2+..a_{1r}x_r+..+a_{1n}x_n&=b_1\\
+a_{22}x_2+..a_{2r}x_r+..+a_{2n}x_n&=b_2\\
+&...\\
+a_{rr}x_r+..+a_{rn}x_n&=b_r\\
+\end{aligned}
+\right.
+$$\\
+$$ 
+\left\{
+\begin{aligned}
+a_{11}x_1+a_{12}x_2+..a_{1r}x_r&=b_1-a_{1r+1}x_{r+1}-..-a_{1n}x_n\\
+a_{22}x_2+..a_{2r}x_r&=b_2-a_{2r+1}x_{r+1}-..-a_{2n}x_n\\
+&...\\
+a_{rr}x_r&=b_r-a_{rr+1}x_{r+1}-..-a_{rn}x_n\\
+\end{aligned}
+\right.
+$$\\
+\\
+$ Ax=b $的解的结构\\
+称$ Ax=0 $为$ Ax=b $的导出组\\
+$ Ax=0 $:若$ \xi_1,\xi_2 $为$ Ax=0 $的解,则$ k_1\xi_1+k_2\xi_2 $也是$ Ax=0 $的解\\
+若$ \eta_1,\eta_2 $是$ Ax=b $的两个解,则\\
+1.$ \eta_1-\eta_2 $是$ Ax=0 $的解\\
+2.$ k_1\eta_1+k_2\eta_2 $(其中$ k_1+k_2=1 $)是$ Ax=b $的解\\
+若$ \eta $是$ Ax=b $(非齐次)的解,$ \xi $是$ Ax=0 $(齐次)的解,则$ \eta+\xi $是$ Ax=b $的解\\
+$ \eta,\eta_0 $是$ Ax=b $的两个解,$ \eta=\eta-\eta_0+\eta_0 $\\
+(所有的解)$ \eta=\eta_0 $(非齐次特解)$ +k_1\xi_1+...k_{n-r}\xi_{n-r} $(齐次解系)\\
+1.$ R(A)+R(B)\ge R(A\pm B) $\\
+2.若$ A,B\in\mathbb{R}^{n\times n},AB=0 $则$ R(A)+R(B)\le n $\\
+\\
+4.8\\
+不想写\\
+\\
+4.11\\
+重极限不存在\\
+$$\lim_{x\to0,y\to0}\dfrac{xy}{x^2+y^2},\lim_{x\to0}\lim_{y\to0}\dfrac{xy}{x^2+y^2}=0$$\\
+$$\lim_{x\to0,y\to0}\dfrac{x-y}{x+y},\lim_{x\to0,y\to0}\dfrac{x-y}{x+y}=1\not=\lim_{y\to0}\lim_{x\to0}\dfrac{x-y}{x+y}=-1$$\\
+累次极限不存在\\
+$$\lim_{x\to0,y\to0}xsin\dfrac{1}{y}+ycos\dfrac{1}{x}=0$$\\
+定理:\\
+若$$\lim_{x\to x_0,y\to y_0}f(x,y)=A$$\\
+且$$\lim_{x\to x_0}\lim_{y\to y_0}f(x,y)=B$$
+则$ B=A $\\
+
+\end{document}
