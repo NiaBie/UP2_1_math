@@ -1,0 +1,31 @@
+\documentclass[11pt, a4paper, UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{esint}
+\usepackage{geometry}
+\usepackage{amssymb}
+\pagestyle{empty}
+\definecolor{brightpink}{rgb}{1.0, 0.0, 0.5}
+\definecolor{ao}{rgb}{0.0, 0.5, 0.0}
+\usepackage[colorlinks,linkcolor=ao,anchorcolor=brightpink,citecolor=green,CJKbookmarks=True]{hyperref}
+\CTEXsetup[format={\Large\bfseries}]{section}
+\geometry{a4paper,top=1cm,bottom=1cm,left=2cm}
+%\renewcommand{\baselinestretch}{1}\normalsize
+\begin{document}
+\indent\\
+\large
+\raggedright
+\def\fuck{\maltese}
+\def\shit#1{#1\protect\hyperlink{catalog}{$\fuck$}}
+\hypertarget{catalog}{}
+\tableofcontents
+\setcounter{secnumdepth}{-1}
+\section{\shit{计算部分}}
+\subsection{\shit{行列式的计算}}
+\subsection{\shit{矩阵的秩}}
+\subsection{\shit{解线性方程,高斯消元法}}
+\subsection{\shit{求特征值和特征向量,矩阵对角化}}
+\subsection{\shit{Schmidt正交化方法,对称阵(用正交阵)对角化}}
+\subsection{\shit{二次型化简为标准型、规范型、正(负)惯性指数}}
+\end{document}
