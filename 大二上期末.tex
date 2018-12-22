@@ -22,12 +22,28 @@
 \tableofcontents
 \setcounter{secnumdepth}{-1}
 \section{\shit{预备知识}}
+\subsection{\shit{初等矩阵}}
+$n$阶单位矩阵经过一次初等变换所得的矩阵
+\subsection{\shit{矩阵的秩}}
+任意一个$m\times n$矩阵的行秩等于列秩\\
+$r(ABC)\ge r(AB)+r(BC)-r(B)$\\
+$r(A)=n\Leftrightarrow r(A*)=n$\\
+$r(A)=n-1\Leftrightarrow r(A*)=1$\\
+$r(A)<n-1\Leftrightarrow r(A*)=0$\\
 \subsection{\shit{行列式性质}}
 行列互换,行列式的值不变\\
 两行/列互换,行列式值变号\\
-若行列式中某行每个晕啊素分为两个数之和,则该行列式课关于该行拆开成两个行列式之和\\
+若行列式中某行每个元素分为两个数之和,则该行列式课关于该行拆开成两个行列式之和\\
 行列式第$j$行/列加上第$i$行/列的$k$倍后,其值不变\\
 行列式中某行(列)有公因子可提出行列式外
+\subsection{\shit{特征值,特征向量}}
+\subsubsection{\shit{特征值}}
+对于一个$n$阶方阵$A$有$P=(\xi_1,\xi_2...\xi_n),\varLambda=diag(\lambda_1,\lambda_2...\lambda_n)$,使$A=P\varLambda P^{-1}$,则$AP=P\varLambda$\\
+所以有
+\[A\xi_i=\lambda_i\xi_i,i-1,2...n\]
+\subsubsection{\shit{相似矩阵的特征向量(p111)}}
+若$P^{-1}AP=B$,$A$的特征向量为$\alpha$,$B$的特征向量为$\beta$,则$\alpha=P\beta$\\
+\[B(P^{-1}\xi)=(P^{-1}AP)(P^{-1}\xi)=P^{-1}A\xi=P^{-1}\lambda\xi=\lambda P^{-1}\xi\]
 \subsection{\shit{线性方程组}}
 \subsubsection{\shit{系数矩阵和增广矩阵}}
 \[
@@ -45,12 +61,14 @@ a_{m1}&a_{m2}&...&a_{mn}&b_m\\
 \end{bmatrix}\]
 \subsubsection{\shit{$Ax=b$有解的充要条件}}
 \[r(A)=r(\bar A)\]
-在此条件下:\\
+\textbf{在此条件下}:\\
 1.若$r(A)=n$,则方程组$Ax=b$有唯一解\\
 2.若$r(A)<n$,则方程组$Ax=b$有无穷多组解
 \subsubsection{\shit{行列式与线性方程组}}
 $A_{n\times n}x=0$有非零解的充要条件是系数矩阵的行列式$|A|=0$\\
 $A_{n\times n}x=b$有唯一解的充要条件是$|A|\not=0$,唯一解为$x=A^{-1}b$
+\subsubsection{\shit{基础解系}}
+设齐次线性方程组的系数矩阵的秩$r<n$,则基础解系所含解的个数等于$n-r$
 \subsection{\shit{基变换/过渡矩阵}}
 \[(\eta_1,\eta_2...\eta_n)=(\varepsilon_1,\varepsilon_2...\varepsilon_n)\begin{bmatrix}
 t_{11}&t_{12}&...&t_{1n}\\
