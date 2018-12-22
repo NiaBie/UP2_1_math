@@ -1,0 +1,131 @@
+\documentclass[11pt, a4paper, UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{esint}
+\usepackage{geometry}
+\usepackage{amssymb}
+\pagestyle{empty}
+\definecolor{brightpink}{rgb}{1.0, 0.0, 0.5}
+\definecolor{ao}{rgb}{0.0, 0.5, 0.0}
+\usepackage[colorlinks,linkcolor=ao,anchorcolor=brightpink,citecolor=green,CJKbookmarks=True]{hyperref}
+\CTEXsetup[format={\Large\bfseries}]{section}
+\geometry{a4paper,top=1cm,bottom=1cm,left=2cm}
+%\renewcommand{\baselinestretch}{1}\normalsize
+\begin{document}
+\indent\\
+\large
+\raggedright
+\def\fuck{\maltese}
+\def\shit#1{#1\protect\hyperlink{catalog}{$\fuck$}}
+\hypertarget{catalog}{}
+\tableofcontents
+\setcounter{secnumdepth}{-1}
+\section{\shit{初等矩阵}}
+$n$阶单位矩阵经过一次初等变换所得的矩阵
+\section{\shit{矩阵的秩}}
+任意一个$m\times n$矩阵的行秩等于列秩\\
+$r(ABC)\ge r(AB)+r(BC)-r(B)$\\
+$r(A)=n\Leftrightarrow r(A*)=n$\\
+$r(A)=n-1\Leftrightarrow r(A*)=1$\\
+$r(A)<n-1\Leftrightarrow r(A*)=0$\\
+\section{\shit{行列式性质}}
+行列互换,行列式的值不变\\
+两行/列互换,行列式值变号\\
+若行列式中某行每个元素分为两个数之和,则该行列式课关于该行拆开成两个行列式之和\\
+行列式第$j$行/列加上第$i$行/列的$k$倍后,其值不变\\
+行列式中某行(列)有公因子可提出行列式外
+\section{\shit{特征值,特征向量}}
+\subsection{\shit{特征值}}
+对于一个$n$阶方阵$A$有$P=(\xi_1,\xi_2...\xi_n),\varLambda=diag(\lambda_1,\lambda_2...\lambda_n)$,使$A=P\varLambda P^{-1}$,则$AP=P\varLambda$\\
+所以有
+\[A\xi_i=\lambda_i\xi_i,i-1,2...n\]
+\subsection{\shit{相似矩阵的特征向量(p111)}}
+若$P^{-1}AP=B$,$A$的特征向量为$\alpha$,$B$的特征向量为$\beta$,则$\alpha=P\beta$\\
+\[B(P^{-1}\xi)=(P^{-1}AP)(P^{-1}\xi)=P^{-1}A\xi=P^{-1}\lambda\xi=\lambda P^{-1}\xi\]
+\subsection{\shit{实对称阵属于不同特征值的特征向量相互正交}}
+\subsection{\shit{$n$阶矩阵可对角化的充要条件是有$n$的线性无关的特征向量}}
+\section{\shit{线性方程组}}
+\subsection{\shit{系数矩阵和增广矩阵}}
+\[
+A=\begin{bmatrix}
+a_{11}&a_{12}&...&a_{1n}\\
+a_{21}&a_{22}&...&a_{2n}\\
+&&...&\\
+a_{m1}&a_{m2}&...&a_{mn}\\
+\end{bmatrix}
+\qquad\bar A=\begin{bmatrix}
+a_{11}&a_{12}&...&a_{1n}&b_1\\
+a_{21}&a_{22}&...&a_{2n}&b_2\\
+&&&...&\\
+a_{m1}&a_{m2}&...&a_{mn}&b_m\\
+\end{bmatrix}\]
+\subsection{\shit{$Ax=b$有解的充要条件}}
+\[r(A)=r(\bar A)\]
+\textbf{在此条件下}:\\
+1.若$r(A)=n$,则方程组$Ax=b$有唯一解\\
+2.若$r(A)<n$,则方程组$Ax=b$有无穷多组解
+\subsection{\shit{行列式与线性方程组}}
+$A_{n\times n}x=0$有非零解的充要条件是系数矩阵的行列式$|A|=0$\\
+$A_{n\times n}x=b$有唯一解的充要条件是$|A|\not=0$,唯一解为$x=A^{-1}b$
+\subsection{\shit{基础解系}}
+设齐次线性方程组的系数矩阵的秩$r<n$,则基础解系所含解的个数等于$n-r$
+\section{\shit{基变换/过渡矩阵}}
+\[(\eta_1,\eta_2...\eta_n)=(\varepsilon_1,\varepsilon_2...\varepsilon_n)\begin{bmatrix}
+t_{11}&t_{12}&...&t_{1n}\\
+t_{21}&t_{22}&...&t_{2n}\\
+&&...&\\
+t_{n1}&t_{n2}&...&t_{nn}\\
+\end{bmatrix}=(\varepsilon_1,\varepsilon_2...\varepsilon_n)T\]
+称$T$为从基$(\varepsilon_1,\varepsilon_2...\varepsilon_n)$到基$(\eta_1,\eta_2...\eta_n)$的过渡矩阵\\
+\subsection{\shit{命题}}
+给定一组基$\varepsilon_1,\varepsilon_2...\varepsilon_n$,命
+\[(\eta_1,\eta_2...\eta_n)=(\varepsilon_1,\varepsilon_2...\varepsilon_n)T\]
+1.如果$\eta_1,\eta_2...\eta_n$是一组基,则$T$可逆\\
+2.如果$T$可逆,则$\eta_1,\eta_2...\eta_n$是一组基
+\section{\shit{坐标变换}}
+设向量$\alpha$在$\varepsilon_1,\varepsilon_2...\varepsilon_n$下的坐标为$(x_1,x_2...x_n)$,即
+\[\alpha=(\varepsilon_1,\varepsilon_2...\varepsilon_n)\begin{bmatrix}
+x_1\\
+x_2\\
+...\\
+x_n\\
+\end{bmatrix}=(\varepsilon_1,\varepsilon_2...\varepsilon_n)X\]
+在$\eta_1,\eta_2...\eta_n$下的坐标为$(y_1,y_2...y_n)$,即\\
+\[\alpha=(\eta_1,\eta_2...\eta_n)\begin{bmatrix}
+y_1\\
+y_2\\
+...\\
+y_n\\
+\end{bmatrix}=(\eta_1,\eta_2...\eta_n)Y\]
+设$(\varepsilon_1,\varepsilon_2...\varepsilon_n)$到$(\eta_1,\eta_2...\eta_n)$的过渡矩阵为$T$,坐标变换公式:
+\[X=TY\]
+\section{\shit{线性变换}}
+设$U,V$是$K$上的线性空间,$T:U\to V$,若:\\
+\[T(\lambda x+\mu y)=\lambda T(x)+\mu T(y)\]
+则称$T$为线性空间$U\to V$上的一个线性变换.从线性空间$U$到其自身的线性变换称为$U$上的线性变换\\
+\subsection{\shit{命题}}
+设线性变换$\bm A$在一组基下的矩阵为$A$,又设向量$\alpha$在这组基下的坐标为
+\[X=\begin{bmatrix}
+x_1\\
+x_2\\
+...\\
+x_n
+\end{bmatrix}\]
+则$\bm A\alpha$在这组基下的坐标为$AX$
+\subsection{\shit{线性变换在不同基下的矩阵}}
+设两组基$(\varepsilon_1,\varepsilon_2...\varepsilon_n),(\eta_1,\eta_2...\eta_n)$及其过渡矩阵:
+\[(\eta_1,\eta_2...\eta_n)=(\varepsilon_1,\varepsilon_2...\varepsilon_n)T\]
+设线性变换$\bm A$在这两组基下的矩阵分别是$A$和$B$:
+\[\bm A(\varepsilon_1,\varepsilon_2...\varepsilon_n)=(\varepsilon_1,\varepsilon_2...\varepsilon_n)A\]
+\[\bm A(\eta_1,\eta_2...\eta_n)=(\eta_1,\eta_2...\eta_n)B\]
+则
+\[B=T^{-1}AT\]
+\section{\shit{度量矩阵}}
+\[G=\begin{bmatrix}
+(\varepsilon_1,\varepsilon_1)&(\varepsilon_1,\varepsilon_2)&...&(\varepsilon_1,\varepsilon_n)\\
+(\varepsilon_2,\varepsilon_1)&(\varepsilon_2,\varepsilon_2)&...&(\varepsilon_2,\varepsilon_n)\\
+&&...&\\
+(\varepsilon_n,\varepsilon_1)&(\varepsilon_n,\varepsilon_2)&...&(\varepsilon_n,\varepsilon_n)\\
+\end{bmatrix}\]
+\end{document}
