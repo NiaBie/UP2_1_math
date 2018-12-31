@@ -18,23 +18,50 @@
 \raggedright
 \def\fuck{\maltese}
 \def\shit#1{#1\protect\hyperlink{catalog}{$\fuck$}}
+\def\im{\mbox{Im}}
 \hypertarget{catalog}{}
 \tableofcontents
 \setcounter{secnumdepth}{-1}
 \section{\shit{初等矩阵}}
 $n$阶单位矩阵经过一次初等变换所得的矩阵
 \section{\shit{矩阵的秩}}
+\subsection{\shit{矩阵的子式}}
+任取$A$的$k$行与$k$列,位于这些行列交叉处的$k^2$个元素,按原来顺序排成的$k$阶行列式,称为矩阵$A$的$k$阶子式
+\subsection{\shit{定义}}
+设$A$是一个$m\times n$矩阵,如果$A$中至少存在一个非零的$r$阶子式$D$,且所有$r+1$阶子式(如果存在的话)全为零,$r$称为矩阵的秩
+\subsection{\shit{性质}}
 任意一个$m\times n$矩阵的行秩等于列秩\\
 $r(ABC)\ge r(AB)+r(BC)-r(B)$\\
 $r(A)=n\Leftrightarrow r(A*)=n$\\
 $r(A)=n-1\Leftrightarrow r(A*)=1$\\
 $r(A)<n-1\Leftrightarrow r(A*)=0$\\
-\section{\shit{行列式性质}}
+\section{\shit{行列式}}
+\subsection{\shit{行列式性质}}
 行列互换,行列式的值不变\\
 两行/列互换,行列式值变号\\
 若行列式中某行每个元素分为两个数之和,则该行列式课关于该行拆开成两个行列式之和\\
 行列式第$j$行/列加上第$i$行/列的$k$倍后,其值不变\\
 行列式中某行(列)有公因子可提出行列式外
+\subsection{\shit{展开}}
+行列式的任一行(列)元素与另一行(列)元素的代数余子式乘积之和等于0
+\subsection{\shit{范德蒙行列式}}
+\[
+\begin{vmatrix}
+1&1&1&1\\
+x_1&x_2&...&x_n\\
+x_1^2&x_2^2&...&x_2^n\\
+...&...&...&...\\
+x_1^{n-1}&x_2^{n-1}&...&x_n^{n-1}\\
+\end{vmatrix}=\sum_{1\le i<j\le n}(x_j-x_i)
+\]
+\subsection{\shit{克莱姆法则}}
+$Ax=b$的解$x_j=\dfrac{D_j}{D}.D_j$是将$D$的第$j$列元素换成方程组右端的常数项所得到的行列式
+\[D_j=\begin{vmatrix}
+a_{11}&...&a_{1,j-1}&b_1&a_{1,j+1}&...&a_{1n}\\
+a_{21}&...&a_{2,j-1}&b_2&a_{2,j+1}&...&a_{2n}\\
+...&...&...&...&...&...&...\\
+a_{n1}&...&a_{n,j-1}&b_n&a_{n,j+1}&...&a_{nn}\\
+\end{vmatrix}\]
 \section{\shit{特征值,特征向量}}
 \subsection{\shit{特征值}}
 对于一个$n$阶方阵$A$有$P=(\xi_1,\xi_2...\xi_n),\varLambda=diag(\lambda_1,\lambda_2...\lambda_n)$,使$A=P\varLambda P^{-1}$,则$AP=P\varLambda$\\
@@ -43,8 +70,37 @@ $r(A)<n-1\Leftrightarrow r(A*)=0$\\
 \subsection{\shit{相似矩阵的特征向量(p111)}}
 若$P^{-1}AP=B$,$A$的特征向量为$\alpha$,$B$的特征向量为$\beta$,则$\alpha=P\beta$\\
 \[B(P^{-1}\xi)=(P^{-1}AP)(P^{-1}\xi)=P^{-1}A\xi=P^{-1}\lambda\xi=\lambda P^{-1}\xi\]
+\subsection{\shit{找不到证明}}
+设$A$为$n$阶(对称?)矩阵,$\lambda$是$A$的特征方程的$r$重根,则矩阵$R(A-\lambda E)=n-r$,从而对应特征值$\lambda$恰有$r$个线性无关的特征向量
+\subsection{\shit{若$A$是实对称矩阵,则存在同阶的正交矩阵$P$使$P^TAP$是实对角矩阵}}
 \subsection{\shit{实对称阵属于不同特征值的特征向量相互正交}}
 \subsection{\shit{$n$阶矩阵可对角化的充要条件是有$n$的线性无关的特征向量}}
+\subsection{\shit{相似矩阵有相同的迹($tr(A)=\sum_{i=1}^na_{ii}$)}}
+\section{\shit{合同变换}}
+设二次型矩阵$A$,对矩阵$B=\begin{bmatrix}
+A\\
+E
+\end{bmatrix}$\textbf{做一次列初等变换后接着做一次相应的行初等变换},重复这种做法,直到得到$\begin{bmatrix}
+\varLambda\\
+P
+\end{bmatrix}$矩阵.其中$\varLambda$为对角矩阵,因为
+\[\begin{bmatrix}
+P^T&\\
+&E\\
+\end{bmatrix}\begin{bmatrix}
+A\\
+E
+\end{bmatrix}P=\begin{bmatrix}
+P^TAP\\
+P
+\end{bmatrix}=\begin{bmatrix}
+\varLambda\\
+P
+\end{bmatrix}\]
+可用非退化线性变换$x=Py$将二次型化为标准形
+\[f(x)=g(y)=y^T\varLambda y\]
+\section{\shit{正定阵}}
+$\bm x\not=\bm\theta,\bm x^TA\bm x>0$
 \section{\shit{线性方程组}}
 \subsection{\shit{系数矩阵和增广矩阵}}
 \[
@@ -70,6 +126,8 @@ $A_{n\times n}x=0$有非零解的充要条件是系数矩阵的行列式$|A|=0$\
 $A_{n\times n}x=b$有唯一解的充要条件是$|A|\not=0$,唯一解为$x=A^{-1}b$
 \subsection{\shit{基础解系}}
 设齐次线性方程组的系数矩阵的秩$r<n$,则基础解系所含解的个数等于$n-r$
+\subsection{\shit{推论(p91)}}
+若$A\in\mathbb{R}^{m\times n}$,则$r(A)+r(N(A))=n$,其中$N(A)$表示$Ax=\theta$的基础解系为列构成的矩阵
 \section{\shit{基变换/过渡矩阵}}
 \[(\eta_1,\eta_2...\eta_n)=(\varepsilon_1,\varepsilon_2...\varepsilon_n)\begin{bmatrix}
 t_{11}&t_{12}&...&t_{1n}\\
@@ -83,6 +141,19 @@ t_{n1}&t_{n2}&...&t_{nn}\\
 \[(\eta_1,\eta_2...\eta_n)=(\varepsilon_1,\varepsilon_2...\varepsilon_n)T\]
 1.如果$\eta_1,\eta_2...\eta_n$是一组基,则$T$可逆\\
 2.如果$T$可逆,则$\eta_1,\eta_2...\eta_n$是一组基
+\section{\shit{线性空间}}
+\subsection{\shit{封闭加法}}
+1.交换律\\
+2.结合律\\
+3.$\bm0$元素\\
+4.负元素$x+(-x)=\bm0$\\
+\subsection{\shit{封闭乘法}}
+1.分配律\\
+2.数因子分配律\\
+3.结合律\\
+4.$1\cdot x=x$\\
+\subsection{\shit{维数公式}}
+\[\dim(W_1)+\dim(W_2)=\dim(W_1+W_2)+\dim(W_1\cap W_2)\]
 \section{\shit{坐标变换}}
 设向量$\alpha$在$\varepsilon_1,\varepsilon_2...\varepsilon_n$下的坐标为$(x_1,x_2...x_n)$,即
 \[\alpha=(\varepsilon_1,\varepsilon_2...\varepsilon_n)\begin{bmatrix}
@@ -101,9 +172,15 @@ y_n\\
 设$(\varepsilon_1,\varepsilon_2...\varepsilon_n)$到$(\eta_1,\eta_2...\eta_n)$的过渡矩阵为$T$,坐标变换公式:
 \[X=TY\]
 \section{\shit{线性变换}}
+\subsection{\shit{定义}}
 设$U,V$是$K$上的线性空间,$T:U\to V$,若:\\
 \[T(\lambda x+\mu y)=\lambda T(x)+\mu T(y)\]
 则称$T$为线性空间$U\to V$上的一个线性变换.从线性空间$U$到其自身的线性变换称为$U$上的线性变换\\
+\subsection{\shit{像空间/核空间}}
+(1)若$V_1,V_2$都是数域$K$上线性空间,设线性映射$T:V_1\to V_2$,则称$V_1$中所有元素的像的集合为像空间,记作$\im(T)$\\
+(2)对于$V_1$到$V_2$的线性映射$T$,称集合
+\[N=N(T)=\{\alpha:T\alpha=0',\alpha\in V_1\}\]
+为$T$的核空间,记作$\ker(T)$,其中0'是$V_2$的零元\\
 \subsection{\shit{命题}}
 设线性变换$\bm A$在一组基下的矩阵为$A$,又设向量$\alpha$在这组基下的坐标为
 \[X=\begin{bmatrix}
@@ -128,4 +205,13 @@ x_n
 &&...&\\
 (\varepsilon_n,\varepsilon_1)&(\varepsilon_n,\varepsilon_2)&...&(\varepsilon_n,\varepsilon_n)\\
 \end{bmatrix}\]
+\section{\shit{正交}}
+\subsection{\shit{施密特正交化}}
+线性无关向量组$\alpha_1,\alpha_2...\alpha_n$可构造出与之等价的正交向量组$\xi_1,\xi_2...\xi_n$
+\[\xi_i=\alpha_i-k_{i1}\xi_1-k_{i2}\xi_2-...-k_{i,i-1}\xi_{i-1}\]
+\[k_{i1}=\dfrac{(\alpha_i,\xi_1)}{|\xi_1|^2},k_{i2}=\dfrac{(\alpha_i,\xi_2)}{|\xi_2|^2},...,k_{i,i-1}=\dfrac{(\alpha_i,\xi_{i-1})}{|\xi_{i-1}|^2}\]
+\subsection{\shit{正交阵}}
+$A^TA=E$
+\section{\shit{合同}}
+设$A$和$B$是两个同阶方阵,若存在一个可逆矩阵$P$,使得有$B=P^TAP$,则称$B$为$A$的合同矩阵,称$P$为$A$到$B$的合同变换矩阵
 \end{document}
